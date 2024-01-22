@@ -361,6 +361,9 @@
 "Assets/Invector-3rdPersonController_LITE/Scripts/Generic/Utils/vComment.cs"
 "Assets/Invector-3rdPersonController_LITE/Scripts/Generic/Utils/vExtensions.cs"
 "Assets/Invector-3rdPersonController_LITE/Scripts/Generic/Utils/vPickupItem.cs"
+"Assets/PathManager.cs"
+"Assets/Scripts/DotNavigator.cs"
+"Assets/Scripts/PathNode.cs"
 "Assets/Scripts/Ragdoll.cs"
 -langversion:9.0
 
