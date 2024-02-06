@@ -7,6 +7,8 @@ public class PathNode : MonoBehaviour
     private PathManager pathManager;
     private float time;
 
+    public Door[] linkedDoors;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +30,10 @@ public class PathNode : MonoBehaviour
         Color oldColor = this.gameObject.GetComponent<MeshRenderer>().material.color;
         Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, 0);
         this.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", newColor);
+
+        for(int i = 0; i < linkedDoors.Length; i ++)
+        {
+            linkedDoors[i].Toggle();
+        }
     }
 }

@@ -20,7 +20,7 @@ public class DotNavigator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Vector3.Lerp(transform.position, target, 0.03f);
+        this.transform.position = Vector3.Lerp(transform.position, target, 7f * Time.deltaTime);
 
         if(Input.GetKeyDown("b") && this.before.Count > 0)
         {
