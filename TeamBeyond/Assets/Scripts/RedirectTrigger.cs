@@ -6,6 +6,8 @@ public class RedirectTrigger : MonoBehaviour
 {
     public bool triggered;
     public ObjectExit data;
+    
+    public int index;
 
     // Start is called before the first frame update
     void Start()

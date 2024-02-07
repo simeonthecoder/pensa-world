@@ -7,6 +7,9 @@ public class ObjectExit : MonoBehaviour
     public bool webpageRedirect;
     public string location;
 
+    public string memoryLocation;
+    public int index;
+
     public GameObject trigger;
 
     // Start is called before the first frame update

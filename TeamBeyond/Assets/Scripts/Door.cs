@@ -15,13 +15,12 @@ public class Door : MonoBehaviour
     public bool open;
 
     private float time;
-    private bool active;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
         this.time = 0f;
-        this.active = false;
 
         CalculateRotationStep();
     }

@@ -7,7 +7,11 @@ public class PathNode : MonoBehaviour
     private PathManager pathManager;
     private float time;
 
+    public int index;
+
     public Door[] linkedDoors;
+
+    public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,7 @@ public class PathNode : MonoBehaviour
 
     void OnMouseDown()
     {
-        pathManager.camera.GetComponent<DotNavigator>().Move(this.gameObject.transform.position);
+        pathManager.camera.GetComponent<DotNavigator>().Move(this.gameObject.transform.position + offset);
         pathManager.camera.GetComponent<DotNavigator>().dots.Push(this.gameObject);
 
         Color oldColor = this.gameObject.GetComponent<MeshRenderer>().material.color;
