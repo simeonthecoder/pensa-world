@@ -16,6 +16,8 @@ public class DotNavigator : MonoBehaviour
 
     public bool specialFlag;
 
+    public AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +33,10 @@ public class DotNavigator : MonoBehaviour
 
         int entranceIndex = PlayerPrefs.GetInt(sceneLocationTag);
 
-        this.gameObject.transform.position = nodeIndex[entranceIndex].transform.position;
-        this.target = nodeIndex[entranceIndex].transform.position;
+        if(entranceIndex < nodeIndex.Length) {
+            this.gameObject.transform.position = nodeIndex[entranceIndex].transform.position;
+            this.target = nodeIndex[entranceIndex].transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -48,11 +52,15 @@ public class DotNavigator : MonoBehaviour
             Color oldColor = targetGameObject.GetComponent<MeshRenderer>().material.color;
             Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, 1f);
             targetGameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", newColor);
+
+            sound.Play();
         }
         else if(Input.GetKeyDown("b") && this.before.Count == 0)
         {
             //this.gameObject.transform.position = root.transform.position;
             this.target = root.transform.position;
+
+            sound.Play();
         }
 
         if((this.target - this.gameObject.transform.position).magnitude < 0.1f)
@@ -64,5 +72,7 @@ public class DotNavigator : MonoBehaviour
     public void Move(Vector3 position) {
         this.before.Push(transform.position);
         this.target = position;
+
+        sound.Play();
     }
 }

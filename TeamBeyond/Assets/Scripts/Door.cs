@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
     public GameObject[] pieces;
     public ObjectExit exitData;
 
+    public AudioSource audio;
+
     public float openTime;
     public float rotateAmount;
 
@@ -58,6 +60,8 @@ public class Door : MonoBehaviour
     {
         this.open = !this.open;
         this.active = true;
+
+        audio.Play();
 
         this.time = 0;
     }

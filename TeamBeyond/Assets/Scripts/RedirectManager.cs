@@ -20,6 +20,7 @@ public class RedirectManager : MonoBehaviour
         if(exitData.webpageRedirect)
         {
             Application.OpenURL("http://localhost:8080/" + exitData.location);
+            Application.Quit();
         }
         else
         {
