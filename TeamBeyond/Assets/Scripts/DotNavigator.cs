@@ -44,7 +44,20 @@ public class DotNavigator : MonoBehaviour
     {
         this.transform.position = Vector3.Lerp(transform.position, target, 7f * Time.deltaTime);
 
-        if(Input.GetKeyDown("b") && this.before.Count > 0)
+        if(Input.GetKeyDown("b"))
+        {
+            Back();
+        }
+
+        if((this.target - this.gameObject.transform.position).magnitude < 0.1f)
+        {
+            this.gameObject.transform.position = this.target;
+        }
+    }
+
+    public void Back()
+    {
+        if(this.before.Count > 0)
         {
             this.target = this.before.Pop();
             GameObject targetGameObject = this.dots.Pop();
@@ -55,17 +68,12 @@ public class DotNavigator : MonoBehaviour
 
             sound.Play();
         }
-        else if(Input.GetKeyDown("b") && this.before.Count == 0)
+        else
         {
             //this.gameObject.transform.position = root.transform.position;
             this.target = root.transform.position;
 
             sound.Play();
-        }
-
-        if((this.target - this.gameObject.transform.position).magnitude < 0.1f)
-        {
-            this.gameObject.transform.position = this.target;
         }
     }
 
