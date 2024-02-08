@@ -22,8 +22,6 @@ public class Ragdoll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log((transform.position - previous).magnitude);
-
         if((transform.position - previous).magnitude >= 0.25) {
             GetComponent<Animator>().enabled = false;
         }
