@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RedirectTrigger : MonoBehaviour
 {
+    //Contains the state of the trigger
     public bool triggered;
+
+    //The exit data
     public ObjectExit data;
     
     public int index;
@@ -21,10 +24,13 @@ public class RedirectTrigger : MonoBehaviour
         
     }
 
+    //Trigger the trigger
     public void Trigger(ObjectExit data)
     {
         this.data = data;
 
+        //Set triggered to true
+        //Once registered and handled, it will return back to false
         triggered = true;
     }
 }

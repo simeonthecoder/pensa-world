@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Scene
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 29510
+  controlID: 44
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 29511
+  controlID: 45
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 29512
+  controlID: 46
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 343
     height: 939
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -311,8 +311,10 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
+  m_SerializedViewNames:
+  - UnityEditor.DeviceSimulation.SimulatorWindow
+  m_SerializedViewValues:
+  - D:\Coding\C#\TeamBeyond\gamedev\TeamBeyond\Library\PlayModeViewStates\f4bf30502716f8741905d0ca7088eeda
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -325,7 +327,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -414,7 +416,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6252fdffb652fdff2a55fdff9a56fdffa858fdffc485fdffd099fdffaaa1fdff70bafdff98befdff66c3fdfffac9fdff741dfeffe21efeffec22feff0833feff0857feff068bfeffa48cfeff6abdfefff4bdfeff06c7feff1ed7feffe6dafefff20afffff60affff920bffff960bffff9a0bffff9e0bffffa20bffffa60bffffac0bffffc60bffff8413ffff2c9a00006a9a00007a9a0000849a0000a69a0000be9a0000cc9a0000fa9a0000009b0000269b00005c9b0000649b0000c6ca0000f6d7000060350100ae350100883601007490010080ce01009cde0100
+      m_ExpandedIDs: 3cddffff8cddffff04e0ffff50e1ffff14e3ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -846,9 +848,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.3488722, y: 7.0066934, z: 9.77665}
+    m_Target: {x: 16.353024, y: 10.219038, z: -36.41018}
     speed: 2
-    m_Value: {x: 1.3488722, y: 7.0066934, z: 9.77665}
+    m_Value: {x: 16.353024, y: 10.219038, z: -36.41018}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -894,13 +896,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08739808, y: 0.02159704, z: 0.0016644775, w: -0.9975867}
+    m_Target: {x: -0.0723011, y: 0.565558, z: -0.054327358, w: -0.8221165}
     speed: 2
-    m_Value: {x: -0.0872548, y: 0.021561634, z: 0.0016617487, w: -0.9959513}
+    m_Value: {x: -0.0722414, y: 0.5632241, z: -0.054113146, w: -0.8213596}
   m_Size:
-    m_Target: 2.7320518
+    m_Target: 12.124355
     speed: 2
-    m_Value: 2.7320518
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1004,7 +1006,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials/Dev
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1012,16 +1014,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials/Dev
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Coding\C#\TeamBeyond\gamedev\TeamBeyond
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: 42070000
-    m_LastClickedID: 1858
-    m_ExpandedIDs: 00000000ee050000ae06000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 34}
+    m_SelectedIDs: f85e0000
+    m_LastClickedID: 24312
+    m_ExpandedIDs: 00000000e05e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1049,7 +1051,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ee05000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000e05e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1126,9 +1128,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 739
+    y: 749
     width: 1576
-    height: 252
+    height: 242
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
