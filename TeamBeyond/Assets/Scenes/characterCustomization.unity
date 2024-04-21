@@ -256,14 +256,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Head: {fileID: 463977427}
+  Body: {fileID: 0}
+  legs: {fileID: 0}
   HeadItems:
   - {fileID: 8880617990596146455}
   - {fileID: 3407333362547329275}
   - {fileID: 3429139388635314620}
   - {fileID: 1041166690977902748}
-  Body: {fileID: 0}
   Bodytems: []
-  legs: {fileID: 0}
   LegItems: []
 --- !u!4 &418106773
 Transform:
@@ -830,12 +830,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177521344162717704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 116.04723, y: -45.41, z: -15.748289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.008331, y: 0.71224594, z: -3.5902214}
   m_LocalScale: {x: 1.8306764, y: 1.8306764, z: 1.8306764}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7089814756196836882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6247642992520592997
 Transform:
@@ -846,11 +846,11 @@ Transform:
   m_GameObject: {fileID: 7981339857272680591}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 102.96, y: -42.308, z: -7.6514}
-  m_LocalScale: {x: 73.47945, y: 73.47944, z: 73.47944}
+  m_LocalPosition: {x: -4.078903, y: 3.8142471, z: 4.5066676}
+  m_LocalScale: {x: 73.47945, y: 73.47943, z: 73.47943}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7089814756196836882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6293646412363665401
 GameObject:
@@ -970,6 +970,8 @@ Transform:
   m_Children:
   - {fileID: 4166981953835572168}
   - {fileID: 1307614684306577183}
+  - {fileID: 6247642992520592997}
+  - {fileID: 5517349999092054706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7579492586715298984
@@ -1023,6 +1025,4 @@ SceneRoots:
   - {fileID: 282278883}
   - {fileID: 520503563}
   - {fileID: 418106773}
-  - {fileID: 6247642992520592997}
-  - {fileID: 5517349999092054706}
   - {fileID: 7089814756196836882}
