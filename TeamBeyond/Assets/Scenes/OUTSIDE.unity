@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18812218, g: 0.21003428, b: 0.2454108, a: 1}
+  m_IndirectSpecularColor: {r: 0.18832123, g: 0.21013544, b: 0.2455228, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (10)
@@ -1648,13 +1652,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -13599,6 +13605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (28)
@@ -14278,6 +14288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (28)
@@ -17437,6 +17451,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (15)
@@ -19185,6 +19203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (11)
@@ -19648,6 +19670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (27)
@@ -20104,6 +20130,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (26)
@@ -20244,6 +20274,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (27)
@@ -20669,6 +20703,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (26)
@@ -21475,6 +21513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (16)
@@ -22610,6 +22652,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (12)
@@ -22718,6 +22764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (9)
@@ -24105,6 +24155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (25)
@@ -25820,6 +25874,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (27)
@@ -29036,6 +29094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (25)
@@ -30729,6 +30791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (25)
@@ -32894,13 +32960,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -41065,6 +41133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (26)
@@ -42853,6 +42925,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (19)
@@ -43333,6 +43409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (20)
@@ -44527,6 +44607,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bab2ba700c6b24c91eb6f01f3317b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 6dd4a5aa9d0b11f4e9d4c76e7e79b164, type: 3}
       propertyPath: m_Name
       value: tower (4)
@@ -45409,13 +45493,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
