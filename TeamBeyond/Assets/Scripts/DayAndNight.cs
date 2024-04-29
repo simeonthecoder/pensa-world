@@ -22,6 +22,9 @@ public class DayAndNight : MonoBehaviour
 
     public Material mat;
 
+    public Material mountainMat;
+    public Material cloudMat;
+
     public void Start()
     {
         currentTime = currentTime == 0 ? PlayerPrefs.GetFloat("daytime", 0f) : currentTime;
@@ -32,6 +35,12 @@ public class DayAndNight : MonoBehaviour
         UpdateTime();
         UpdateDayNightCycle();
         RotateSkybox();
+
+        mountainMat.SetColor("_FogColor", fogGradient.Evaluate(currentTime));
+        mountainMat.SetColor("_HazeColor", fogGradient.Evaluate(currentTime));
+        mountainMat.SetFloat("_GlowStrength", fogGradient.Evaluate(currentTime).grayscale / 2.0f);
+
+        cloudMat.SetColor("_Color", skyboxTintGradient.Evaluate(currentTime));
     }
 
     private void UpdateTime()

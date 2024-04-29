@@ -17,14 +17,13 @@ public class StreetBlock : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject layout = Instantiate(layouts.transform.GetChild(Random.Range(0, layouts.transform.childCount)).gameObject);
-
-        layout.transform.position = transform.position + offset;
-        layout.transform.rotation = transform.rotation;
-
         int rot = Random.Range(0, 4);
 
-        layout.transform.rotation *= Quaternion.Euler(0, rotations[rot], 0);
+        GameObject layout = Instantiate(
+            layouts.transform.GetChild(Random.Range(0, layouts.transform.childCount)).gameObject,
+            transform.position + offset,
+            transform.rotation * Quaternion.Euler(0, rotations[rot], 0)
+        );
 
         // layout.GetComponent<StreetBlock>().Spawn();
     }
