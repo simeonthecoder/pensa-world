@@ -15,12 +15,13 @@ public class GrassSpawner : MonoBehaviour
         for(int i = 0; i < levelsCount; i ++)
         {
             GameObject currPlane = Instantiate(grassPlane);
-            currPlane.transform.position = this.transform.position + new Vector3(
+            currPlane.transform.position = grassPlane.transform.position + new Vector3(
                 0f, heightDistance * (i + 1), 0f
             );
 
-            currPlane.GetComponent<GrassPlane>().index = i + 1;
-            currPlane.GetComponent<GrassPlane>().Start();
+            currPlane.transform.SetParent(grassPlane.transform.parent);
+
+            currPlane.GetComponent<AttachTo>().target = grassPlane;
         }
     }
 

@@ -4,32 +4,17 @@ using UnityEngine;
 
 public class GrassPlane : MonoBehaviour
 {
-    public int index;
+    private Vector3 offset;
 
-    public float windSpeed;
-    public Vector2 windDirection;
-
-    public float strength;
-
-    private Vector3 startState;
-    private float time;
+    public GameObject baseLayer;
 
     public void Start()
     {
-        this.startState = transform.position;
-        this.time = 0f;
+        this.offset = this.transform.position - baseLayer.transform.position;
     }
 
     private void Update()
     {
-        this.time += Time.deltaTime;
-
-        Vector2 windVector = windSpeed * windDirection;
-
-        transform.position = startState + new Vector3(
-            (Mathf.PerlinNoise(time * windVector.x, time * windVector.y) - 0.5f) * index * index * strength,
-            0f,
-            (Mathf.PerlinNoise(time * windVector.y, time * windVector.x) - 0.5f) * index * index * strength
-        );
+        transform.position = baseLayer.transform.position + this.offset;
     }
 }
