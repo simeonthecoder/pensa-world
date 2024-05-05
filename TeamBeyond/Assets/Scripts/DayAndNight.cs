@@ -18,12 +18,19 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] private float dayDurationInSeconds = 60f;
     [SerializeField] private float rotationSpeed = 1f;
 
+    private bool lightsActive = false;
+
     public float currentTime;
 
     public Material mat;
 
-    public Material mountainMat;
-    public Material cloudMat;
+    [SerializeField] public Material mountainMat;
+    [SerializeField] public Material cloudMat;
+
+    [Header("Night Materials")]
+    [SerializeField] public Material[] activations;
+    [SerializeField] public string[] properties;
+    [SerializeField] public float[] values;
 
     public void Start()
     {
@@ -51,13 +58,27 @@ public class DayAndNight : MonoBehaviour
         if(Input.GetKey("]")) currentTime += 0.01f;
         if(Input.GetKey("[")) currentTime -= 0.01f;
 
-        if(currentTime > 0.4f && currentTime < 0.7f)
+        if((currentTime > 0.4f && currentTime < 0.7f) && !lightsActive)
         {
             mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * 10);
+
+            for(int i = 0; i < activations.Length; i ++)
+            {
+                activations[i].SetFloat(properties[i], values[i]);
+            }
+
+            lightsActive = true;
         }
-        else
+        else if(!(currentTime > 0.4f && currentTime < 0.7f) && lightsActive)
         {
             mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * -10);
+
+            for(int i = 0; i < activations.Length; i ++)
+            {
+                activations[i].SetFloat(properties[i], 0);
+            }
+
+            lightsActive = false;
         }
 
         PlayerPrefs.SetFloat("daytime", currentTime);

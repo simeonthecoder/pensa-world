@@ -76,7 +76,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 2
+    - _Alpha: 0.9170001
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
@@ -89,7 +89,7 @@ Material:
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
     - _BumpScale: 1
-    - _Cloudiness: 0.15
+    - _Cloudiness: 0.20100005
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -105,13 +105,13 @@ Material:
     - _Scale_Main: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed_A: 20
-    - _Speed_B: 20
-    - _Speed_Main: 20
+    - _Speed_A: 80
+    - _Speed_B: 80
+    - _Speed_Main: 80
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.54163235, g: 0.37138793, b: 0.039870404, a: 1}
+    - _Color: {r: 0.9502598, g: 0.92923814, b: 0.87738466, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
