@@ -35,19 +35,27 @@ Shader "AQUAS-Lite/Frontface"
 		_FarTilingDistance("Far Tiling Distance", Float) = 0
 		_DistanceFade("Distance Fade", Float) = 0
 		[HideInInspector] __dirty( "", Int ) = 1
+		[Header(Reflections)]
+        _Reflectivity ("Reflectivity", Range(0, 1)) = 0.5
+        _FresnelPower ("Fresnel Power", Range(1, 5)) = 5
+        [KeywordEnum(One, Two, Three, Four)]
+            _PRID ("Planar Refl. ID", Float) = 0
 	}
 
 	SubShader
 	{
-		Tags{ "RenderType" = "Transparent"  "Queue" = "Transparent+0" "IgnoreProjector" = "True" }
+		Tags{ "RenderType" = "Transparent" "Queue"="Transparent" "IgnoreProjector" = "True" }
 		Cull Back
-		GrabPass{ }
+		ZWrite On
+		
 		CGPROGRAM
 		#include "UnityPBSLighting.cginc"
 		#include "UnityShaderVariables.cginc"
 		#include "UnityCG.cginc"
+		#include "PlanarReflections.cginc"
+		#pragma multi_compile _PRID_ONE _PRID_TWO _PRID_THREE _PRID_FOUR
 		#pragma target 3.0
-		#pragma surface surf StandardCustomLighting alpha:fade keepalpha noshadow vertex:vertexDataFunc 
+		#pragma surface surf StandardCustomLighting noshadow vertex:vertexDataFunc 
 		struct Input
 		{
 			float4 screenPos;
@@ -120,6 +128,7 @@ Shader "AQUAS-Lite/Frontface"
 			return o;
 		}
 
+		float3 normalAAAAAA;
 
 		void vertexDataFunc( inout appdata_full v, out Input o )
 		{
@@ -307,6 +316,7 @@ Shader "AQUAS-Lite/Frontface"
 			float opacity508 = pow( distanceDepth261 , _TransparencyFade );
 			float4 lerpResult87_g1 = lerp( screenColor86_g1 , float4( diffuseSpecular132_g1 , 0.0 ) , opacity508);
 			c.rgb = ( lerpResult87_g1 * ase_lightAtten ).rgb;
+			c.rgb += SamplePlanarReflections(i.screenPos) * c.rgb * 5 * (1 - specularFinalColor42_g1);
 			c.a = 1;
 			return c;
 		}
@@ -316,10 +326,11 @@ Shader "AQUAS-Lite/Frontface"
 			s.GIData = data;
 		}
 
-		void surf( Input i , inout SurfaceOutputCustomLightingCustom o )
+		void surf( Input i , inout SurfaceOutputCustomLightingCustom o)
 		{
 			o.SurfInput = i;
 			o.Normal = float3(0,0,1);
+			o.Emission = SamplePlanarReflections(i.screenPos) * 0.3f;
 		}
 
 		ENDCG

@@ -10,6 +10,29 @@ public class FreeCamera : MonoBehaviour
     public vThirdPersonCamera camera;
     public Invector.vCharacterController.vThirdPersonInput playerController;
 
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("FreeCam") == 1)
+        {
+            enabled = true;
+
+            camera.enabled = !enabled;
+            playerController.enabled = !enabled;
+
+            transform.position = new Vector3(
+                PlayerPrefs.GetFloat("FreeCamX"),
+                PlayerPrefs.GetFloat("FreeCamY"),
+                PlayerPrefs.GetFloat("FreeCamZ")
+            );
+
+            transform.eulerAngles = new Vector3(
+                PlayerPrefs.GetFloat("FreeCamRotX"),
+                PlayerPrefs.GetFloat("FreeCamRotY"),
+                PlayerPrefs.GetFloat("FreeCamRotZ")
+            );
+        }
+    }
+
     void Update()
     {
         if(Input.GetKeyDown("c"))
@@ -37,5 +60,18 @@ public class FreeCamera : MonoBehaviour
 
         Vector3 rotation = new Vector3(-mouseY, mouseX, 0f) * lookSpeed;
         transform.eulerAngles += rotation;
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("FreeCam", enabled ? 1 : 0);
+
+        PlayerPrefs.SetFloat("FreeCamX", transform.position.x);
+        PlayerPrefs.SetFloat("FreeCamY", transform.position.y);
+        PlayerPrefs.SetFloat("FreeCamZ", transform.position.z);
+
+        PlayerPrefs.SetFloat("FreeCamRotX", transform.eulerAngles.x);
+        PlayerPrefs.SetFloat("FreeCamRotY", transform.eulerAngles.y);
+        PlayerPrefs.SetFloat("FreeCamRotZ", transform.eulerAngles.z);
     }
 }

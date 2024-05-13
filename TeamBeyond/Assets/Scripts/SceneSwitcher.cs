@@ -16,6 +16,8 @@ public class SceneSwitcher : MonoBehaviour
             // Calculate the index of the next scene
             int nextIndex = (currentIndex + 1) % SceneManager.sceneCountInBuildSettings;
 
+            GetComponent<FreeCamera>().SaveData();
+
             // Load the next scene
             SceneManager.LoadScene(nextIndex);
         }
