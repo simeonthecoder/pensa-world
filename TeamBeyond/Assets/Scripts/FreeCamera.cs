@@ -47,6 +47,7 @@ public class FreeCamera : MonoBehaviour
         if(Input.GetKeyDown("t"))
         {
             player.transform.position = transform.position;
+            Destroy(GetComponent<DotNavigator>());
         }
 
         if(!enabled) return;

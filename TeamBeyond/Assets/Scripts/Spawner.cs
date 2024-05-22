@@ -34,6 +34,7 @@ public class StreetBlock : MonoBehaviour
             //&& !Application.isPlaying
         )
         {
+            //Random.seed = 0;
             Spawn();
         }
     }

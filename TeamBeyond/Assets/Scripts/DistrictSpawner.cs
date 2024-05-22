@@ -43,6 +43,7 @@ public class DistrictSpawner : MonoBehaviour
     {
         if(spawnOnStart)
         {
+            //Random.seed = 0;
             Spawn();
         }
     }
