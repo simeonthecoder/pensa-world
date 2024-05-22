@@ -47,7 +47,7 @@ public class DayAndNight : MonoBehaviour
         mountainMat.SetColor("_HazeColor", fogGradient.Evaluate(currentTime));
         mountainMat.SetFloat("_GlowStrength", fogGradient.Evaluate(currentTime).grayscale / 2.0f);
 
-        cloudMat.SetColor("_Color", skyboxTintGradient.Evaluate(currentTime));
+        cloudMat.SetColor("_Color", skyboxTintGradient.Evaluate(currentTime) * 2f);
     }
 
     private void UpdateTime()

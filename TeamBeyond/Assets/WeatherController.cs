@@ -32,11 +32,11 @@ public class WeatherController : MonoBehaviour
 
         if(userControl && Input.GetKey("."))
         {
-            curr += 0.03f;
+            curr += Time.deltaTime;
         }
         else if(userControl && Input.GetKey(","))
         {
-            curr -= 0.03f;
+            curr -= Time.deltaTime;
         }
 
         curr = Mathf.Max(0f, Mathf.Min(1f, curr));

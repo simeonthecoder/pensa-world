@@ -23,8 +23,8 @@ public class DistrictSpawner : MonoBehaviour
                 GameObject currBlock = Instantiate(streetBlock);
 
                 currBlock.transform.position = this.transform.position + new Vector3(
-                    i * 10 * distanceMultiplier.x - sizeX * 5 + 5,
-                    0.1f, j * 10 * distanceMultiplier.y - sizeY * 5 + 5
+                    i * 11 * distanceMultiplier.x - sizeX * 5 + 5,
+                    0.1f, j * 11 * distanceMultiplier.y - sizeY * 5 + 5
                 );
                 
                 currBlock.transform.rotation = this.transform.rotation;

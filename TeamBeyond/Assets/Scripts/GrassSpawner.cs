@@ -9,9 +9,13 @@ public class GrassSpawner : MonoBehaviour
     public int levelsCount;
     public float heightDistance;
 
+    private List<GameObject> grassObjects;
+
     // Start is called before the first frame update
     void Start()
     {
+        grassObjects = new List<GameObject>();
+
         for(int i = 0; i < levelsCount; i ++)
         {
             GameObject currPlane = Instantiate(grassPlane);
@@ -22,6 +26,8 @@ public class GrassSpawner : MonoBehaviour
             currPlane.transform.SetParent(grassPlane.transform.parent);
 
             currPlane.GetComponent<AttachTo>().target = grassPlane;
+
+            grassObjects.Add(currPlane);
         }
     }
 
@@ -29,5 +35,15 @@ public class GrassSpawner : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Toggle(bool status)
+    {
+        foreach (GameObject plane in grassObjects)
+        {
+            plane.SetActive(status);
+        }
+
+        grassPlane.SetActive(status);
     }
 }

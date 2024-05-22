@@ -9,6 +9,7 @@ public class FreeCamera : MonoBehaviour
 
     public vThirdPersonCamera camera;
     public Invector.vCharacterController.vThirdPersonInput playerController;
+    public GameObject player;
 
     void Start()
     {
@@ -43,7 +44,14 @@ public class FreeCamera : MonoBehaviour
             playerController.enabled = !enabled;
         }
 
+        if(Input.GetKeyDown("t"))
+        {
+            player.transform.position = transform.position;
+        }
+
         if(!enabled) return;
+
+        //player.transform.position = transform.position;
 
         // Movement controls
         float moveHorizontal = Input.GetAxis("Horizontal");
