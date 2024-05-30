@@ -6,6 +6,7 @@ public class FreeCamera : MonoBehaviour
     public float lookSpeed = 2f; // Speed of camera rotation
 
     public bool enabled;
+    public bool movementDisabled;
 
     public vThirdPersonCamera camera;
     public Invector.vCharacterController.vThirdPersonInput playerController;
@@ -13,7 +14,7 @@ public class FreeCamera : MonoBehaviour
 
     void Start()
     {
-        if(PlayerPrefs.GetInt("FreeCam") == 1)
+        if (PlayerPrefs.GetInt("FreeCam") == 1)
         {
             enabled = true;
 
@@ -36,7 +37,7 @@ public class FreeCamera : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("c"))
+        if (Input.GetKeyDown("c"))
         {
             enabled = !enabled;
 
@@ -44,13 +45,13 @@ public class FreeCamera : MonoBehaviour
             playerController.enabled = !enabled;
         }
 
-        if(Input.GetKeyDown("t"))
+        if (Input.GetKeyDown("t"))
         {
             player.transform.position = transform.position;
             Destroy(GetComponent<DotNavigator>());
         }
 
-        if(!enabled) return;
+        if (!enabled) return;
 
         //player.transform.position = transform.position;
 
@@ -59,9 +60,9 @@ public class FreeCamera : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 moveDirection = new Vector3(moveHorizontal, 0f, moveVertical) * moveSpeed * Time.deltaTime;
-        if(Input.GetKey(KeyCode.LeftShift)) moveDirection *= 3;
-        
-        transform.Translate(moveDirection);
+        if (Input.GetKey(KeyCode.LeftShift)) moveDirection *= 3;
+
+        if (!movementDisabled) transform.Translate(moveDirection);
 
         // Rotation controls
         float mouseX = Input.GetAxis("Mouse X");
