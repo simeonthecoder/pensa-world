@@ -55,8 +55,8 @@ public class DayAndNight : MonoBehaviour
         currentTime += Time.deltaTime / dayDurationInSeconds;
         currentTime = Mathf.Repeat(currentTime, 1f);
 
-        if(Input.GetKey("]")) currentTime += 0.01f;
-        if(Input.GetKey("[")) currentTime -= 0.01f;
+        if(Input.GetKey("]")) currentTime += 0.5f * Time.deltaTime;
+        if(Input.GetKey("[")) currentTime -= 0.5f * Time.deltaTime;
 
         if((currentTime > 0.4f && currentTime < 0.7f) && !lightsActive)
         {
@@ -71,7 +71,7 @@ public class DayAndNight : MonoBehaviour
         }
         else if(!(currentTime > 0.4f && currentTime < 0.7f) && lightsActive)
         {
-            mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * -10);
+            mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * 0);
 
             for(int i = 0; i < activations.Length; i ++)
             {

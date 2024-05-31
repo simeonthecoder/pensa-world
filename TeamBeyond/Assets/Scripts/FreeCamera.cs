@@ -35,19 +35,29 @@ public class FreeCamera : MonoBehaviour
         }
     }
 
+    public void Toggle()
+    {
+        enabled = !enabled;
+
+        camera.enabled = !enabled;
+        playerController.enabled = !enabled;
+    }
+    
+    public void TeleportPlayer(Vector3 offset)
+    {
+        player.transform.position = transform.position + offset;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("c"))
         {
-            enabled = !enabled;
-
-            camera.enabled = !enabled;
-            playerController.enabled = !enabled;
+            Toggle();
         }
 
         if (Input.GetKeyDown("t"))
         {
-            player.transform.position = transform.position;
+            TeleportPlayer(Vector3.zero);
             Destroy(GetComponent<DotNavigator>());
         }
 
