@@ -18,11 +18,12 @@ public class DayAndNight : MonoBehaviour
     [SerializeField] private float dayDurationInSeconds = 60f;
     [SerializeField] private float rotationSpeed = 1f;
 
-    private bool lightsActive = false;
+    private bool lightsActive = true;
 
     public float currentTime;
 
     public Material mat;
+    [SerializeField] public ParticleSystem fireflies;
 
     [SerializeField] public Material mountainMat;
     [SerializeField] public Material cloudMat;
@@ -62,7 +63,9 @@ public class DayAndNight : MonoBehaviour
         {
             mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * 10);
 
-            for(int i = 0; i < activations.Length; i ++)
+            fireflies.Play();
+
+            for (int i = 0; i < activations.Length; i ++)
             {
                 activations[i].SetFloat(properties[i], values[i]);
             }
@@ -71,6 +74,8 @@ public class DayAndNight : MonoBehaviour
         }
         else if(!(currentTime > 0.4f && currentTime < 0.7f) && lightsActive)
         {
+            fireflies.Stop();
+
             mat.SetColor("_EmissionColor", new Color(0.8196f,0.583f,0) * 0);
 
             for(int i = 0; i < activations.Length; i ++)

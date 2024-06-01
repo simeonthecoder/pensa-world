@@ -21,6 +21,15 @@ public class Transition : MonoBehaviour
         {
             Debug.Log(offset == 0 ? 1 : offset);
 
+            Vector3 playerPos = GameObject.FindWithTag("Player").transform.position;
+            string saveString = SceneManager.GetActiveScene().name;
+            
+            PlayerPrefs.SetFloat($"{saveString}_x", playerPos.x);
+            PlayerPrefs.SetFloat($"{saveString}_y", playerPos.y);
+            PlayerPrefs.SetFloat($"{saveString}_z", playerPos.z);
+
+            GameObject.FindWithTag("MainCamera").GetComponent<FreeCamera>().SaveData();
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + (offset == 0 ? 1 : offset));
         }
     }
@@ -28,5 +37,10 @@ public class Transition : MonoBehaviour
     void OnTriggerEnter()
     {
         inside = true;
+    }
+
+    void OnTriggerExit()
+    {
+        inside = false;
     }
 }

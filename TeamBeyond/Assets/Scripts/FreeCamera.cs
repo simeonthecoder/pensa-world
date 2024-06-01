@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FreeCamera : MonoBehaviour
 {
@@ -12,8 +13,12 @@ public class FreeCamera : MonoBehaviour
     public Invector.vCharacterController.vThirdPersonInput playerController;
     public GameObject player;
 
+    private int playerSnap;
+
     void Start()
     {
+        playerSnap = 20;
+
         if (PlayerPrefs.GetInt("FreeCam") == 1)
         {
             enabled = true;
@@ -33,6 +38,13 @@ public class FreeCamera : MonoBehaviour
                 PlayerPrefs.GetFloat("FreeCamRotZ")
             );
         }
+        else
+        {
+            enabled = false;
+
+            camera.enabled = true;
+            playerController.enabled = true;
+        }
     }
 
     public void Toggle()
@@ -50,6 +62,41 @@ public class FreeCamera : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log($"enabled: {enabled} movementDisabled: {movementDisabled} camera.enabled: {camera.enabled} playerController.enabled: {playerController.enabled}");
+
+        if (playerSnap > 0 && PlayerPrefs.GetInt("FreeCam") != 1)
+        {
+            playerController.enabled = false;
+
+            GameObject player = GameObject.FindWithTag("Player");
+            string saveString = SceneManager.GetActiveScene().name;
+
+            if (PlayerPrefs.GetFloat($"{saveString}_x") == 0)
+            {
+                playerSnap = -1;
+                return;
+            }
+
+            player.transform.position = new Vector3(
+                PlayerPrefs.GetFloat($"{saveString}_x"),
+                PlayerPrefs.GetFloat($"{saveString}_y"),
+                PlayerPrefs.GetFloat($"{saveString}_z")
+            );
+
+            playerSnap--;
+        }
+
+        if (playerSnap <= 0 && playerSnap > -10)
+        {
+            camera.enabled = true;
+            enabled = false;
+
+            playerController.enabled = true;
+            movementDisabled = false;
+
+            playerSnap = -200;
+        }
+
         if (Input.GetKeyDown("c"))
         {
             Toggle();
