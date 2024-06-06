@@ -59,10 +59,10 @@ Material:
     - _Layout: 0
     - _Mapping: 1
     - _MirrorOnBack: 0
-    - _Rotation: 42.99773
+    - _Rotation: 164.73523
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0.48225814, g: 0.30186042, b: 0.06282671, a: 1}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1002 &2100001
