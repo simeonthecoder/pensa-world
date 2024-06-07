@@ -8,6 +8,9 @@ public class TriggerHandler : MonoBehaviour
     private bool inside = false;
     private bool active = false;
 
+    public float cooldown;
+    private float time = 0;
+
     public void Start()
     {
         Debug.Log("starting niga");
@@ -16,9 +19,11 @@ public class TriggerHandler : MonoBehaviour
 
     public void Update()
     {
+        time += Time.deltaTime;
+
         if (!inside && !active) return;
 
-        if (Input.GetKeyDown("g"))
+        if (Input.GetKeyDown("e"))
         {
             active = true;
             FreeCamera freeCam = playerCamera.GetComponent<FreeCamera>();
@@ -43,11 +48,16 @@ public class TriggerHandler : MonoBehaviour
         }
         if (active)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && time > cooldown)
             {
                 Debug.Log("hvurlqi se ot mosta");
                 rod.GetComponent<Animator>().SetBool("rod_throw", true);
-                
+                time = 0f;
+            }
+
+            if (time > cooldown)
+            {
+                rod.GetComponent<Animator>().SetBool("rod_throw", false);
             }
         }
 

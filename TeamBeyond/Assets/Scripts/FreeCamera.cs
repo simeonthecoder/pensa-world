@@ -120,6 +120,7 @@ public class FreeCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift)) moveDirection *= 3;
 
         if (!movementDisabled) transform.Translate(moveDirection);
+        if (movementDisabled) return;
 
         // Rotation controls
         float mouseX = Input.GetAxis("Mouse X");
