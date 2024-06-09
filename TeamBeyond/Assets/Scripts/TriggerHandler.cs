@@ -11,6 +11,8 @@ public class TriggerHandler : MonoBehaviour
     public Text uiText;
     public float cooldown;
 
+    private float time = 0f;
+    private float randomValue = 0f;
 
     public TextController textController;
 
@@ -50,7 +52,7 @@ public class TriggerHandler : MonoBehaviour
                 targetPosition.transform.position.z + 1
             );
 
-            
+
         }
         if (active)
         {

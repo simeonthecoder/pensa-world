@@ -101,7 +101,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GlowStrength: 0.23385283
+    - _GlowStrength: 0.28341213
     - _HazeSpeed: 20
     - _Haze_Amplitude: 0.5
     - _Haze_Speed: 5
@@ -118,9 +118,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0.50065565, g: 0.46897542, b: 0.3747461, a: 1}
+    - _FogColor: {r: 0.71714795, g: 0.55740184, b: 0.22107132, a: 1}
     - _Fog_Color: {r: 0.19379672, g: 0.4108175, b: 0.6132076, a: 0}
-    - _HazeColor: {r: 0.50065565, g: 0.46897542, b: 0.3747461, a: 1}
+    - _HazeColor: {r: 0.71714795, g: 0.55740184, b: 0.22107132, a: 1}
     - _Haze_Color: {r: 0.19215688, g: 0.41176474, b: 0.6117647, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
