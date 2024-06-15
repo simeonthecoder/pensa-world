@@ -15,7 +15,11 @@ public class WeatherController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        userControl = false;
+        curr = PlayerPrefs.GetFloat("curr");
+
+        if (curr == 0) curr = 0.75f;
+
+        userControl = true;
     }
 
     // Update is called once per frame
@@ -40,6 +44,8 @@ public class WeatherController : MonoBehaviour
         }
 
         curr = Mathf.Max(0f, Mathf.Min(1f, curr));
+
+        PlayerPrefs.SetFloat("curr", curr);
 
         cloudMaterial.SetFloat("_Cloudiness", Mathf.Lerp(0.6f, -0.1f, curr));
         cloudMaterial.SetFloat("_Alpha", Mathf.Lerp(2, 0.1f, curr));

@@ -12,11 +12,18 @@ public class FreeCamera : MonoBehaviour
     public vThirdPersonCamera camera;
     public Invector.vCharacterController.vThirdPersonInput playerController;
     public GameObject player;
+    public GameObject[] body;
 
     private int playerSnap;
 
+    public float distance;
+
     void Start()
     {
+        if (distance == 0) distance = 1.7f;
+
+        distance = PlayerPrefs.GetFloat("CamDistance");
+
         playerSnap = 20;
 
         if (PlayerPrefs.GetInt("FreeCam") == 1)
@@ -108,6 +115,16 @@ public class FreeCamera : MonoBehaviour
             Destroy(GetComponent<DotNavigator>());
         }
 
+        distance -= Input.mouseScrollDelta.y;
+        distance = Mathf.Max(-0.1f, distance);
+
+        camera.defaultDistance = distance;
+
+        foreach (GameObject curr in body)
+        {
+            curr.GetComponent<Renderer>().enabled = (distance != -0.1f);
+        }
+
         if (!enabled) return;
 
         //player.transform.position = transform.position;
@@ -141,5 +158,7 @@ public class FreeCamera : MonoBehaviour
         PlayerPrefs.SetFloat("FreeCamRotX", transform.eulerAngles.x);
         PlayerPrefs.SetFloat("FreeCamRotY", transform.eulerAngles.y);
         PlayerPrefs.SetFloat("FreeCamRotZ", transform.eulerAngles.z);
+
+        PlayerPrefs.SetFloat("CamDistance", distance);
     }
 }

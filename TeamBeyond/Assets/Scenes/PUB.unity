@@ -4097,6 +4097,7 @@ GameObject:
   - component: {fileID: 937728116}
   - component: {fileID: 937728115}
   - component: {fileID: 937728114}
+  - component: {fileID: 937728121}
   m_Layer: 0
   m_Name: vThirdPersonCamera
   m_TagString: MainCamera
@@ -4294,6 +4295,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 177.903, z: 0}
+--- !u!114 &937728121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937728112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b2dada427330b42b632582f5819d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  lookSpeed: 2
+  enabled: 0
+  movementDisabled: 0
+  camera: {fileID: 937728117}
+  playerController: {fileID: 375931067}
+  player: {fileID: 375931066}
+  body:
+  - {fileID: 348425412}
+  - {fileID: 2139279959}
+  - {fileID: 1344231686}
+  - {fileID: 1702754109}
+  - {fileID: 89943327}
+  distance: 0
 --- !u!1 &938228878
 GameObject:
   m_ObjectHideFlags: 0
