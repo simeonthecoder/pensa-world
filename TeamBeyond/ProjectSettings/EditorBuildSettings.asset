@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CUTSCENE.unity
     guid: 39b700dc80605de498825692fdef40f1
   - enabled: 1
+    path: Assets/Scenes/CUTSCENE 2.unity
+    guid: bf41dc9970b9eb14d85e2220ecde2b65
+  - enabled: 1
     path: Assets/Scenes/OUTSIDE_CASTLE.unity
     guid: 4b7ef0a58e68b984bb7584492f90e086
   - enabled: 1

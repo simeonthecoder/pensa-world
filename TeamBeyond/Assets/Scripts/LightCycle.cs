@@ -12,7 +12,7 @@ public class LightCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.sun = GameObject.Find("Sun").GetComponent<DayAndNight>();
+        this.sun = GameObject.Find("vThirdPersonCamera").GetComponent<DayAndNight>();
     }
 
     // Update is called once per frame
