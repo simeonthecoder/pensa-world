@@ -5,7 +5,13 @@ using System.Collections;
 public class TutorialText : MonoBehaviour
 {
     public Text text;
+    public trigger_with_player_tutorial collisionPlayer;
+    public GameObject shiftTutorialPlacePos;
+    public GameObject E_TutorialPlacePos;
     public float fadeDuration = 1.0f;
+    public GameObject tutorial_place;
+
+    private bool inside = false;
     private bool doneWASD = false;
     private bool doneE = false;
     private bool doneShift = false;
@@ -21,27 +27,42 @@ public class TutorialText : MonoBehaviour
 
     private void Start()
     {
+
+        tutorial_place.SetActive(false);
         text.text = dialog[0];
         StartCoroutine(FadeIn());
     }
 
     private void Update()
     {
+
+
         if ((Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse Y") > 0) && !doneTurningCamera)
         {
             StartCoroutine(ChangeTextWithFade(dialog[1]));
             doneTurningCamera = true;
+            tutorial_place.SetActive(true);
         }
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !doneWASD && doneTurningCamera)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && (!doneWASD && doneTurningCamera) && (collisionPlayer.inside))
         {
+
             StartCoroutine(ChangeTextWithFade(dialog[2]));
+            
+
+            
+            tutorial_place.transform.position = shiftTutorialPlacePos.transform.position;
             doneWASD = true;
+            collisionPlayer.inside = false;
+
         }
 
-        if ((Input.GetKeyDown(KeyCode.LeftShift)) && !doneShift && doneWASD)
+        if ((Input.GetKey(KeyCode.LeftShift)) && !doneShift && doneWASD && (collisionPlayer.inside))
         {
             StartCoroutine(ChangeTextWithFade(dialog[3]));
+            
+            
+            tutorial_place.transform.position = E_TutorialPlacePos.transform.position;
             doneShift = true;
         }
 
@@ -81,4 +102,6 @@ public class TutorialText : MonoBehaviour
         }
         text.color = new Color(text.color.r, text.color.g, text.color.b, 1); // ensure the text is fully opaque at the end
     }
+
+    
 }
