@@ -316,7 +316,7 @@ Shader "AQUAS-Lite/Frontface"
 			float opacity508 = pow( distanceDepth261 , _TransparencyFade );
 			float4 lerpResult87_g1 = lerp( screenColor86_g1 , float4( diffuseSpecular132_g1 , 0.0 ) , opacity508);
 			c.rgb = ( lerpResult87_g1 * ase_lightAtten ).rgb;
-			c.rgb += SamplePlanarReflections(i.screenPos) * c.rgb * 5 * (1 - specularFinalColor42_g1);
+			//c.rgb += SamplePlanarReflections(i.screenPos) * c.rgb * 5 * (1 - specularFinalColor42_g1);
 			c.a = 1;
 			return c;
 		}
@@ -330,7 +330,7 @@ Shader "AQUAS-Lite/Frontface"
 		{
 			o.SurfInput = i;
 			o.Normal = float3(0,0,1);
-			o.Emission = SamplePlanarReflections(i.screenPos) * 0.3f;
+			//o.Emission = SamplePlanarReflections(i.screenPos) * 0.3f;
 		}
 
 		ENDCG

@@ -46,5 +46,7 @@ public class StreetBlock : MonoBehaviour
             Spawn();
             spawn = false;
         }
+
+        this.gameObject.SetActive(false);
     }
 }

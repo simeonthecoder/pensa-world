@@ -5,6 +5,7 @@ public class Transition : MonoBehaviour
 {
     private bool inside = false;
     public int offset;
+    public int entryPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,10 +24,8 @@ public class Transition : MonoBehaviour
 
             Vector3 playerPos = GameObject.FindWithTag("Player").transform.position;
             string saveString = SceneManager.GetActiveScene().name;
-            
-            PlayerPrefs.SetFloat($"{saveString}_x", playerPos.x);
-            PlayerPrefs.SetFloat($"{saveString}_y", playerPos.y);
-            PlayerPrefs.SetFloat($"{saveString}_z", playerPos.z);
+
+            PlayerPrefs.SetInt("EntryPoint", entryPoint);
 
             GameObject.FindWithTag("MainCamera").GetComponent<FreeCamera>().SaveData();
 

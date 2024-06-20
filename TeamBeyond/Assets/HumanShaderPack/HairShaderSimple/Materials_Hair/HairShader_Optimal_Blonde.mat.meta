@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5f1eb416b5627384c9693947009568db
+timeCreated: 1525025324
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117773
+  packageName: Hair Shader 1.0
+  packageVersion: 1.311
+  assetPath: Assets/HumanShaderPack/HairShaderSimple/Materials_Hair/HairShader_Optimal_Blonde.mat
+  uploadId: 381339

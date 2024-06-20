@@ -55,5 +55,7 @@ public class DistrictSpawner : MonoBehaviour
             spawn = false;
             Spawn();
         }
+
+        this.gameObject.SetActive(false);
     }
 }

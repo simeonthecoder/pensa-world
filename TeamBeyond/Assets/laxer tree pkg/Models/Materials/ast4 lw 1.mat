@@ -108,7 +108,7 @@ Material:
     - _Parallax: 0.02
     - _ShadowStrength: 1
     - _Shininess: 0.7
-    - _Smoothness: 0
+    - _Smoothness: 0.33
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SquashAmount: 1

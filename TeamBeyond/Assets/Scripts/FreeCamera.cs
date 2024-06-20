@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,15 +15,17 @@ public class FreeCamera : MonoBehaviour
     public GameObject player;
     public GameObject[] body;
 
+    public GameObject[] entryPoints;
+
     private int playerSnap;
 
     public float distance;
 
     void Start()
     {
-        if (distance == 0) distance = 1.7f;
-
         distance = PlayerPrefs.GetFloat("CamDistance");
+
+        if (distance == 0) distance = 1.7f;
 
         playerSnap = 20;
 
@@ -84,11 +87,14 @@ public class FreeCamera : MonoBehaviour
                 return;
             }
 
-            player.transform.position = new Vector3(
-                PlayerPrefs.GetFloat($"{saveString}_x"),
-                PlayerPrefs.GetFloat($"{saveString}_y"),
-                PlayerPrefs.GetFloat($"{saveString}_z")
-            );
+            try
+            {
+                player.transform.position = entryPoints[PlayerPrefs.GetInt("EntryPoint")].transform.position;
+            }
+            catch (Exception e)
+            {
+                player.transform.position = entryPoints[0].transform.position;
+            }
 
             playerSnap--;
         }

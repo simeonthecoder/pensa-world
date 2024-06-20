@@ -9,6 +9,8 @@ public class LightCycle : MonoBehaviour
     public float cycleStart;
     public float cycleEnd;
 
+    private int time;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class LightCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (++time % 30 != 0) return;
+        
         GetComponent<Light>().enabled = (sun.currentTime >= cycleStart && sun.currentTime <= cycleEnd);
     }
 }

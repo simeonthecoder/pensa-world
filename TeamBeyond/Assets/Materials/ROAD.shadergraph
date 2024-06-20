@@ -746,6 +746,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "a60d3d478cef4cab8e2da5a7c40917ba"
@@ -1150,7 +1151,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Smoothness",
     "m_StageCapability": 2,
-    "m_Value": 0.0,
+    "m_Value": 0.5,
     "m_DefaultValue": 0.5,
     "m_Labels": []
 }
@@ -3836,6 +3837,7 @@
     "m_SGVersion": 2,
     "m_Type": "UnityEditor.Rendering.BuiltIn.ShaderGraph.BuiltInTarget",
     "m_ObjectId": "a60d3d478cef4cab8e2da5a7c40917ba",
+    "m_Datas": [],
     "m_ActiveSubTarget": {
         "m_Id": "449862826c594a63a5eb1ba153f1743a"
     },
