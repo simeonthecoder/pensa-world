@@ -8,6 +8,7 @@ public class TutorialText : MonoBehaviour
     public trigger_with_player_tutorial collisionPlayer;
     public GameObject shiftTutorialPlacePos;
     public GameObject E_TutorialPlacePos;
+    public GameObject DoorTutorialPlacePos;
     public float fadeDuration = 1.0f;
     public GameObject tutorial_place;
 
@@ -16,6 +17,7 @@ public class TutorialText : MonoBehaviour
     private bool doneE = false;
     private bool doneShift = false;
     private bool doneTurningCamera = false;
+    private bool doneTutorial = false;
 
     private string[] dialog = {
         "Завъртете камерата с въртене на мишката или натискане на стрелките",
@@ -44,7 +46,7 @@ public class TutorialText : MonoBehaviour
             tutorial_place.SetActive(true);
         }
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && (!doneWASD && doneTurningCamera) && (collisionPlayer.inside))
+        if ((Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && (!doneWASD && doneTurningCamera) && (collisionPlayer.inside))
         {
 
             StartCoroutine(ChangeTextWithFade(dialog[2]));
@@ -66,11 +68,16 @@ public class TutorialText : MonoBehaviour
             doneShift = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !doneE && doneShift)
+        if (Input.GetKey(KeyCode.E) && !doneE && doneShift && (collisionPlayer.inside))
         {
             StartCoroutine(ChangeTextWithFade(dialog[4]));
+
+            tutorial_place.transform.position = DoorTutorialPlacePos.transform.position;
             doneE = true;
+            
         }
+
+
 
     }
 

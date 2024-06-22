@@ -21,7 +21,7 @@ public class TriggerHandler : MonoBehaviour
 
     public void Start()
     {
-        fishing_length = Random.Range(4f, 20f);
+        fishing_length = Random.Range(40f, 200f);
 
         Debug.Log("starting niga");
         rod.SetActive(false);
@@ -78,6 +78,7 @@ public class TriggerHandler : MonoBehaviour
 
             if (fishing == true)
             {
+                Debug.Log("fishing_length " + fishing_length);
                 fishing_length--;
             }
 
@@ -92,7 +93,14 @@ public class TriggerHandler : MonoBehaviour
                     randomValue = Random.Range(4f, 20f);
                     fishing = false;
                     fishing_length = randomValue;
+                    Debug.Log("fishing_length " + fishing_length);
                 }
+            }
+
+            if (fishing == false)
+            {
+                rod.GetComponent<Animator>().SetBool("rod_pull", false);
+                
             }
 
         }

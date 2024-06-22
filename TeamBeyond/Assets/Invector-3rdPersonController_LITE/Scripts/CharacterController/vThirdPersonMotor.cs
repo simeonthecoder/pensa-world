@@ -60,7 +60,7 @@ namespace Invector.vCharacterController
 
         internal Animator animator;
         internal Rigidbody _rigidbody;                                                      // access the Rigidbody component
-        internal PhysicsMaterial frictionPhysics, maxFrictionPhysics, slippyPhysics;         // create PhysicMaterial for the Rigidbody
+        internal PhysicMaterial frictionPhysics, maxFrictionPhysics, slippyPhysics;         // create PhysicMaterial for the Rigidbody
         internal CapsuleCollider _capsuleCollider;                                          // access CapsuleCollider information
 
         #endregion
@@ -111,25 +111,25 @@ namespace Invector.vCharacterController
             animator.updateMode = AnimatorUpdateMode.Fixed;
 
             // slides the character through walls and edges
-            frictionPhysics = new PhysicsMaterial();
+            frictionPhysics = new PhysicMaterial();
             frictionPhysics.name = "frictionPhysics";
             frictionPhysics.staticFriction = .25f;
             frictionPhysics.dynamicFriction = .25f;
-            frictionPhysics.frictionCombine = PhysicsMaterialCombine.Multiply;
+            frictionPhysics.frictionCombine = PhysicMaterialCombine.Multiply;
 
             // prevents the collider from slipping on ramps
-            maxFrictionPhysics = new PhysicsMaterial();
+            maxFrictionPhysics = new PhysicMaterial();
             maxFrictionPhysics.name = "maxFrictionPhysics";
             maxFrictionPhysics.staticFriction = 1f;
             maxFrictionPhysics.dynamicFriction = 1f;
-            maxFrictionPhysics.frictionCombine = PhysicsMaterialCombine.Maximum;
+            maxFrictionPhysics.frictionCombine = PhysicMaterialCombine.Maximum;
 
             // air physics 
-            slippyPhysics = new PhysicsMaterial();
+            slippyPhysics = new PhysicMaterial();
             slippyPhysics.name = "slippyPhysics";
             slippyPhysics.staticFriction = 0f;
             slippyPhysics.dynamicFriction = 0f;
-            slippyPhysics.frictionCombine = PhysicsMaterialCombine.Minimum;
+            slippyPhysics.frictionCombine = PhysicMaterialCombine.Minimum;
 
             // rigidbody info
             _rigidbody = GetComponent<Rigidbody>();
@@ -181,8 +181,8 @@ namespace Invector.vCharacterController
             Vector3 targetVelocity = (targetPosition - transform.position) / Time.deltaTime;
 
             bool useVerticalVelocity = true;
-            if (useVerticalVelocity) targetVelocity.y = _rigidbody.linearVelocity.y;
-            _rigidbody.linearVelocity = targetVelocity;
+            if (useVerticalVelocity) targetVelocity.y = _rigidbody.velocity.y;
+            _rigidbody.velocity = targetVelocity;
         }
 
         public virtual void CheckSlopeLimit()
@@ -246,9 +246,9 @@ namespace Invector.vCharacterController
                 isJumping = false;
             }
             // apply extra force to the jump height   
-            var vel = _rigidbody.linearVelocity;
+            var vel = _rigidbody.velocity;
             vel.y = jumpHeight;
-            _rigidbody.linearVelocity = vel;
+            _rigidbody.velocity = vel;
         }
 
         public virtual void AirControl()
@@ -270,8 +270,8 @@ namespace Invector.vCharacterController
             Vector3 targetPosition = _rigidbody.position + (moveDirection * airSpeed) * Time.deltaTime;
             Vector3 targetVelocity = (targetPosition - transform.position) / Time.deltaTime;
 
-            targetVelocity.y = _rigidbody.linearVelocity.y;
-            _rigidbody.linearVelocity = Vector3.Lerp(_rigidbody.linearVelocity, targetVelocity, airSmooth * Time.deltaTime);
+            targetVelocity.y = _rigidbody.velocity.y;
+            _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, targetVelocity, airSmooth * Time.deltaTime);
         }
 
         protected virtual bool jumpFwdCondition
@@ -308,7 +308,7 @@ namespace Invector.vCharacterController
                     // set IsGrounded to false 
                     isGrounded = false;
                     // check vertical velocity
-                    verticalVelocity = _rigidbody.linearVelocity.y;
+                    verticalVelocity = _rigidbody.velocity.y;
                     // apply extra gravity when falling
                     if (!isJumping)
                     {
