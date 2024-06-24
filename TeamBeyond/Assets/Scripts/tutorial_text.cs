@@ -9,8 +9,10 @@ public class TutorialText : MonoBehaviour
     public GameObject shiftTutorialPlacePos;
     public GameObject E_TutorialPlacePos;
     public GameObject DoorTutorialPlacePos;
-    public float fadeDuration = 1.0f;
+    public GameObject chestOpen;
+    public GameObject chestClosed;
     public GameObject tutorial_place;
+    public float fadeDuration = 1.0f;
 
     private bool inside = false;
     private bool doneWASD = false;
@@ -29,7 +31,7 @@ public class TutorialText : MonoBehaviour
 
     private void Start()
     {
-
+        chestOpen.SetActive(false);
         tutorial_place.SetActive(false);
         text.text = dialog[0];
         StartCoroutine(FadeIn());
@@ -71,7 +73,8 @@ public class TutorialText : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && !doneE && doneShift && (collisionPlayer.inside))
         {
             StartCoroutine(ChangeTextWithFade(dialog[4]));
-
+            chestOpen.SetActive(true);
+            chestClosed.SetActive(false);
             tutorial_place.transform.position = DoorTutorialPlacePos.transform.position;
             doneE = true;
             
