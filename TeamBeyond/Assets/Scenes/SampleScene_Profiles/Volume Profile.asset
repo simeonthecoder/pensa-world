@@ -30,13 +30,13 @@ MonoBehaviour:
     value: 8
   maximumMarchDistance:
     overrideState: 1
-    value: 570.3
+    value: 750
   distanceFade:
     overrideState: 1
-    value: 0.153
+    value: 0
   vignette:
     overrideState: 1
-    value: 0.824
+    value: 0
 --- !u!114 &-6065685859209291312
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1592,7 +1592,7 @@ MonoBehaviour:
     value: 2.6
   keyValue:
     overrideState: 1
-    value: 0.38
+    value: 0.5
   eyeAdaptation:
     overrideState: 1
     value: 0

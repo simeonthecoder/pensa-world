@@ -131,6 +131,17 @@ public class FreeCamera : MonoBehaviour
             curr.GetComponent<Renderer>().enabled = (distance != -0.1f);
         }
 
+        float currentTime = GetComponent<DayAndNight>().currentTime;
+
+        if ((currentTime > 0.4f && currentTime < 0.7f))
+        {
+            GetComponent<Crepuscular>().enabled = false;
+        }
+        else if (!(currentTime > 0.4f && currentTime < 0.7f))
+        {
+            GetComponent<Crepuscular>().enabled = true;
+        }
+
         if (!enabled) return;
 
         //player.transform.position = transform.position;

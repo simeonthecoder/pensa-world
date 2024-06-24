@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mountain
   - house
+  - Sun
   layers:
   - Default
   - TransparentFX
