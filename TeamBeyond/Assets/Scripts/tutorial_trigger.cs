@@ -17,7 +17,6 @@ public class tutorial_trigger : MonoBehaviour
     {
         if (inside)
         {
-            Debug.Log("its inside");
             text.SetActive(true);
             
         }
@@ -25,7 +24,6 @@ public class tutorial_trigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("GEI NEGUR");
         inside = true;
     }
 }

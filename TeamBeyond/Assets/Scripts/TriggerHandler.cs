@@ -22,8 +22,6 @@ public class TriggerHandler : MonoBehaviour
     public void Start()
     {
         fishing_length = Random.Range(40f, 200f);
-
-        Debug.Log("starting niga");
         rod.SetActive(false);
     }
 
@@ -109,7 +107,6 @@ public class TriggerHandler : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("GEI NEGUR");
         inside = true;
     }
 }
