@@ -4,19 +4,21 @@ public class balls_merge : MonoBehaviour
 
 {
 
-    public GameObject replacementObject;
+    
     public GameObject ball00;
     public GameObject ball01;
     public GameObject ball02;
+    public GameObject ball03;
+    public GameObject ball04;
 
-
+    public AudioSource balls_merge_sfx;
     private static bool hasReplaced = false;
     public GameObject[] balls;
 
     void Start()
     {
 
-        balls = new GameObject[] { ball00,ball01, ball02 };
+        balls = new GameObject[] { ball00 ,ball01, ball02, ball03,ball04 };
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,8 +31,11 @@ public class balls_merge : MonoBehaviour
                 {
 
                     Vector3 midpoint = (transform.position + collision.transform.position) / 2;
-                    Instantiate(balls[i += 1], midpoint, Quaternion.identity);
-                    // Destroy both objects involved in the collision
+                    midpoint.y += 1f;
+                    Instantiate(balls[++i], midpoint, Quaternion.identity);
+                    balls_merge_sfx.Play();
+
+
                     Destroy(collision.gameObject);
                     hasReplaced = true;
                     Destroy(gameObject);

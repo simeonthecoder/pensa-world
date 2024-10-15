@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class placement_controller : MonoBehaviour
 {
-
-   
-
-    
-
+    public GameObject display_ball;
     public GameObject ball00;
     public GameObject ball01;
     public GameObject ball02;
+    public GameObject ball03;
+    public GameObject ball04;
 
-    private GameObject[] balls;
+    public AudioSource balls_drop_sfx;
+
+    private bool ball_displaying_next = false;
+    
+    private GameObject nextBallDisplay;
+    public GameObject[] balls_placeing;
+
+    public int randomBall;
 
     public Transform targetObject;  
     private Vector3 offset = new Vector3(0, -1, 0); 
@@ -27,46 +32,57 @@ public class placement_controller : MonoBehaviour
 
     void Start()
     {
-        balls = new GameObject[] { ball00, ball01, ball02 };
-        
+        balls_placeing = new GameObject[] { ball00, ball01, ball02, ball03, ball04};
+        bool ball_displaying_next = false;
         lastMousePosition = Input.mousePosition;
     }
 
     void Update()
     {
-        // Calculate how much the mouse moved since the last frame
+        
         Vector3 deltaMousePosition = Input.mousePosition - lastMousePosition;
 
-        // Move the object along the X-axis based on mouse movement
+        
         float newX = transform.position.x + (deltaMousePosition.x * sensitivity);
 
-        // Clamp the X position between minX and maxX
+        
         newX = Mathf.Clamp(newX, minX, maxX);
 
-        // Update the object's position
+        
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 
-        // Update the last mouse position for the next frame
+        
         lastMousePosition = Input.mousePosition;
 
-        // Check if the left mouse button is pressed and if the cooldown has passed
-        if (Input.GetMouseButtonDown(0) && Time.time >= lastClickTime + clickCooldown)
+
+        if (ball_displaying_next == false)
         {
-            // Create a copy of the object
-            int randomNumber = Random.Range(0, balls.Lenght);
-            GameObject newObject = Instantiate(ball02);
-
-            // Position the new object at the target object's position, but below it (using the offset)
-            newObject.transform.position = targetObject.position + offset;
-
-            // Update the last click time to the current time
-            lastClickTime = Time.time;
+            this.randomBall = Random.Range(0, balls_placeing.Length);
+            nextBallDisplay = Instantiate(balls_placeing[this.randomBall], display_ball.transform.position, Quaternion.identity);
+            ball_displaying_next = true;
         }
 
-        // Check if the F key is pressed
+
+
+        if (Input.GetMouseButtonDown(0) && Time.time >= lastClickTime + clickCooldown)
+        {
+            balls_drop_sfx.Play();
+            GameObject newObject = Instantiate(balls_placeing[this.randomBall]);
+            newObject.transform.position = targetObject.position + offset;
+
+            
+            if (nextBallDisplay != null)
+            {
+                Destroy(nextBallDisplay);
+            }
+
+            lastClickTime = Time.time;
+            ball_displaying_next = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // Log the current X position of the object to the debug console
+            
             Debug.Log("Current X Position: " + transform.position.x);
         }
     }
