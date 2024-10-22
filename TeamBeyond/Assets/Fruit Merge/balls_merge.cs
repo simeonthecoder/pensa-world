@@ -1,24 +1,18 @@
 using UnityEngine;
 
 public class balls_merge : MonoBehaviour
-
 {
-
-    
-    public GameObject ball00;
-    public GameObject ball01;
-    public GameObject ball02;
-    public GameObject ball03;
-    public GameObject ball04;
+    public GameObject endLine;
 
     public AudioSource balls_merge_sfx;
     private static bool hasReplaced = false;
     public GameObject[] balls;
+    private bool save;
 
     void Start()
     {
-
-        balls = new GameObject[] { ball00 ,ball01, ball02, ball03,ball04 };
+        bool save = false;
+     
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,6 +44,32 @@ public class balls_merge : MonoBehaviour
         }
     }
 
+
+    void Update()
+    {
+        Vector3 position = transform.position;
+
+        
+        if (position.y < endLine.transform.position.y)
+        {
+            //Debug.Log("true saveae");
+            save = true;
+        }
+
+  
+        if (position.y > endLine.transform.position.y && save == true)
+        {
+            foreach (GameObject obj in balls)
+            {
+                if (obj != null)
+                {
+                    Destroy(obj);
+                }
+            }
+                
+        }
+
+    }
 }
 
 

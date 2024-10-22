@@ -1,14 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class placement_controller : MonoBehaviour
 {
     public GameObject display_ball;
-    public GameObject ball00;
-    public GameObject ball01;
-    public GameObject ball02;
-    public GameObject ball03;
-    public GameObject ball04;
 
+    public TextMeshPro textMeshPro;
     public AudioSource balls_drop_sfx;
 
     private bool ball_displaying_next = false;
@@ -28,13 +25,23 @@ public class placement_controller : MonoBehaviour
     private float lastClickTime = 0f; 
 
     public float minX = -5f; 
-    public float maxX = 5f;  
+    public float maxX = 5f;
+
 
     void Start()
     {
-        balls_placeing = new GameObject[] { ball00, ball01, ball02, ball03, ball04};
+        textMeshPro = GetComponent<TextMeshPro>();
         bool ball_displaying_next = false;
         lastMousePosition = Input.mousePosition;
+    }
+
+
+    public void UpdateTextContent(string newText)
+    {
+        if (textMeshPro != null)
+        {
+            textMeshPro.text = newText;
+        }
     }
 
     void Update()
@@ -57,6 +64,7 @@ public class placement_controller : MonoBehaviour
 
         if (ball_displaying_next == false)
         {
+
             this.randomBall = Random.Range(0, balls_placeing.Length);
             nextBallDisplay = Instantiate(balls_placeing[this.randomBall], display_ball.transform.position, Quaternion.identity);
             ball_displaying_next = true;
