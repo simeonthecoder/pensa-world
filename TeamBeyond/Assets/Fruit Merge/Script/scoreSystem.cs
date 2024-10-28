@@ -36,9 +36,9 @@ public class scoreSystem : MonoBehaviour
             
 
             
-            for (int i = 0; i < ballsObj.Length; i++)
+            for (int i = 0; i < ballsTags.Length; i++)
             {
-                if (ballsObj[i] == collider.gameObject)
+                if (ballsTags[i] == collider.gameObject.tag)
                 {
                     score = scoreAdds[i]; 
                     totalScore += score; 

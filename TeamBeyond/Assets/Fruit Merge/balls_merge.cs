@@ -5,17 +5,28 @@ public class balls_merge : MonoBehaviour
     public GameObject endLine;
 
     public AudioSource balls_merge_sfx;
+    public AudioSource touch_ground_sfx;
     private static bool hasReplaced = false;
     public GameObject[] balls;
     private bool save;
+    private bool touchGround;
 
     void Start()
     {
+        bool touchGround = false;
         bool save = false;
      
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Ground_platform")
+        {
+            if (touchGround == false)
+            {
+                touch_ground_sfx.Play();
+                touchGround = true;
+            }
+        }
         // Check if the object collided with has the same tag and ensure replacement happens only once globally
         if (collision.gameObject.tag == gameObject.tag && !hasReplaced)
         {

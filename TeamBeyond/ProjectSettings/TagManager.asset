@@ -16,6 +16,7 @@ TagManager:
   - Ball06
   - Ball07
   - Ball08
+  - Ground_platform
   layers:
   - Default
   - TransparentFX

@@ -14,10 +14,21 @@ public class TriggerHandler : MonoBehaviour
     public float cooldown;
     public bool fishing = false;
 
+    private int timer = 3;
+    public AudioSource RodBack;
+    public AudioSource RodCast;
+    public AudioSource[] Splashes;
+
+
+    private int randomSplash;
     private float time = 0f;
     private float randomValue = 0f;
+    private int randomFish = 0;
 
     private float fishing_length;
+    private string[] fishes = { "fort (uncommon)", "fort1 (common)", "fort2 (rare)", "fort3 (mythic)", "fort4 (legendary)" };
+    
+    private bool hit_play = false;
 
     public void Start()
     {
@@ -51,6 +62,7 @@ public class TriggerHandler : MonoBehaviour
                 targetPosition.transform.position.y - 1,
                 targetPosition.transform.position.z + 1
             );
+
         }
 
         if (active)
@@ -59,46 +71,64 @@ public class TriggerHandler : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && time > cooldown)
             {
                 Debug.Log("hvurlqi se ot mosta");
-
+                hit_play = false;
+                RodCast.Play();
                 rod.GetComponent<Animator>().SetBool("rod_throw", true);
+                
                 time = 0f;
             }
 
             if (time > cooldown)
             {
-                fishing = true;
 
+                fishing = true;
                 Debug.Log("wdsadw");
                 rod.GetComponent<Animator>().SetBool("rod_throw", false);
 
                 uiText.text = "GEIIII ICE";
             }
 
-            if (fishing == true)
+            if (fishing == true && time < cooldown)
             {
-                Debug.Log("fishing_length " + fishing_length);
+                
                 fishing_length--;
             }
-
+            Debug.Log("fishing_length " + fishing_length);
             if (fishing_length <= 0)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && fishing)
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && fishing)
                 {
                     uiText.text = "Press SPACE";
 
                     rod.GetComponent<Animator>().SetBool("rod_pull", true);
+                    
+                    randomValue = Random.Range(40f, 150f);
+                    randomFish = Random.Range(0, fishes.Length);
 
-                    randomValue = Random.Range(4f, 20f);
+                    Debug.Log(fishes[randomFish]);
                     fishing = false;
                     fishing_length = randomValue;
+                    
                     Debug.Log("fishing_length " + fishing_length);
                 }
             }
 
+            if (fishing_length < -1 && hit_play == false)
+            {
+                this.randomSplash = Random.Range(0, Splashes.Length);
+         
+                Splashes[randomSplash].Play();
+                
+                
+                
+                hit_play = true;
+            }
+
             if (fishing == false)
             {
+                RodBack.Play();
                 rod.GetComponent<Animator>().SetBool("rod_pull", false);
-                
+                time = cooldown + 1;
             }
 
         }
