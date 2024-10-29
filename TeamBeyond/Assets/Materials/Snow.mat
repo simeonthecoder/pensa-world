@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6230956742088282402
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 0
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,22 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mountain_with_haze
-  m_Shader: {fileID: -6465566751694194690, guid: aa25033511100f04798e49f3e5f4ec98, type: 3}
+  m_Name: Snow
+  m_Shader: {fileID: -6465566751694194690, guid: b700a45e2c5ea70479e13cd05a36e441, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _BUILTIN_ALPHATEST_ON
-  - _BUILTIN_AlphaClip
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Detail_Ratio
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -75,41 +59,31 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 8e474926afbda73448c96f90f8e6df03, type: 3}
+    - _ParallaxMapping_9a3a2a7b889248c0937b7f92bdb4a856_Heightmap_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 283f897e4925411ebbaa758b4cb13fc2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BUILTIN_AlphaClip: 1
-    - _BUILTIN_Blend: 0
-    - _BUILTIN_CullMode: 2
-    - _BUILTIN_DstBlend: 0
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BUILTIN_SrcBlend: 1
-    - _BUILTIN_Surface: 0
-    - _BUILTIN_ZTest: 4
-    - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _Detail_Ratio: 0.166
     - _DstBlend: 0
-    - _FogStrength: 1
-    - _Fog_Multiplier: -3
+    - _Emission: 0.196
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GlowStrength: 0.20174
-    - _HazeSpeed: 20
-    - _Haze_Amplitude: 0.5
-    - _Haze_Speed: 5
-    - _Metallic: 0
+    - _Metallic: 0.3
     - _Mode: 0
+    - _Noise_Scale: 137
+    - _Normal_Strength: 5
     - _OcclusionStrength: 1
-    - _Offset: 0.7
     - _Parallax: 0.02
+    - _Parallax_Strength: -30
+    - _Smooth: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -118,9 +92,20 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0.45684165, g: 0.39019293, b: 0.3319393, a: 1}
-    - _Fog_Color: {r: 0.19379672, g: 0.4108175, b: 0.6132076, a: 0}
-    - _HazeColor: {r: 0.45684165, g: 0.39019293, b: 0.3319393, a: 1}
-    - _Haze_Color: {r: 0.19215688, g: 0.41176474, b: 0.6117647, a: 0}
+    - _Subsurface_Color: {r: 0.28087914, g: 0.31344882, b: 0.36, a: 1}
+    - _Tint: {r: 0.68693334, g: 0.7635326, b: 0.8784314, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &179776616636669646
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0

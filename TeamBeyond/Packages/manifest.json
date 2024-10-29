@@ -1,5 +1,16 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "Voltstro UPM",
+      "url": "https://upm-pkgs.voltstro.dev",
+      "scopes": [
+        "dev.voltstro",
+        "org.nuget"
+      ]
+    }
+  ],
   "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads": "4.4.2",
@@ -17,6 +28,23 @@
     "com.unity.timeline": "1.8.6",
     "com.unity.ugui": "2.0.0",
     "com.unity.xr.legacyinputhelpers": "2.1.10",
+    "dev.voltstro.nativearrayspanextensions": "1.0.1",
+    "dev.voltstro.nuget.mono.unix": "1.0.0",
+    "dev.voltstro.unitycommandlineparser": "2.1.2",
+    "dev.voltstro.unityimgui": "5.0.1",
+    "dev.voltstro.unityvoltbuilder": "4.1.2",
+    "dev.voltstro.unitywebbrowser": "2.2.4",
+    "dev.voltstro.unitywebbrowser.communication.pipes": "2.2.0",
+    "dev.voltstro.unitywebbrowser.engine.cef": "2.2.3-130.1.2",
+    "dev.voltstro.unitywebbrowser.engine.cef.linux.x64": "2.2.3-130.1.2",
+    "dev.voltstro.unitywebbrowser.engine.cef.macos.arm64": "2.2.3-130.1.2",
+    "dev.voltstro.unitywebbrowser.engine.cef.macos.x64": "2.2.3-130.1.2",
+    "dev.voltstro.unitywebbrowser.engine.cef.win.x64": "2.2.3-130.1.2",
+    "dev.voltstro.unitywebbrowser.unix-support": "1.1.0",
+    "org.nuget.voltrpc": "3.2.1",
+    "org.nuget.voltrpc.communication.pipes": "3.1.0",
+    "org.nuget.voltrpc.extension.memory": "1.1.0",
+    "org.nuget.voltrpc.extension.vectors": "1.1.0",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

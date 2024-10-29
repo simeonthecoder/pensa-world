@@ -22,6 +22,6 @@ public class Wave : MonoBehaviour
 
         //Calculate position based on sine waves
         //Take the offset into account to break up the animation
-        transform.position += new Vector3(0, Mathf.Sin(time + offset) / 300f, 0); 
+        transform.position += new Vector3(0, Mathf.Sin(time + offset) / 300f, 0) * 30; 
     }
 }
