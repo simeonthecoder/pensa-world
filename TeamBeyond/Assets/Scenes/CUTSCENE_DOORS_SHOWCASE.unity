@@ -56485,8 +56485,8 @@ MonoBehaviour:
     engine: {fileID: 11400000, guid: 649ce3cfdf00ca615abcf2bb62227f5c, type: 2}
     initialUrl: https://pensa.club
     resolution:
-      Width: 1920
-      Height: 1080
+      Width: 960
+      Height: 540
     backgroundColor:
       serializedVersion: 2
       rgba: 4294967295

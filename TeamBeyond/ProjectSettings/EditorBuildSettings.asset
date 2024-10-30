@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CUTSCENE_DOORS_SHOWCASE.unity
     guid: 3c641e2685d1b3c479bc648f7e4ad03f
+  - enabled: 1
+    path: Assets/Scenes/C_Remake_1.unity
+    guid: acbb8ad5d3d191f44a76ffcdae849c51
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
