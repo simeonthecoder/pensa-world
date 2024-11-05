@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static System.Net.Mime.MediaTypeNames;
@@ -32,6 +32,8 @@ public class TriggerHandler : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log(uiText);
+
         fishing_length = Random.Range(40f, 200f);
         rod.SetActive(false);
     }
@@ -67,14 +69,14 @@ public class TriggerHandler : MonoBehaviour
 
         if (active)
         {
-
             if (Input.GetMouseButtonDown(0) && time > cooldown)
             {
                 Debug.Log("hvurlqi se ot mosta");
                 hit_play = false;
                 RodCast.Play();
                 rod.GetComponent<Animator>().SetBool("rod_throw", true);
-                
+                rod.GetComponent<Animator>().SetBool("rod_pull", false);
+
                 time = 0f;
             }
 
@@ -84,24 +86,22 @@ public class TriggerHandler : MonoBehaviour
                 fishing = true;
                 Debug.Log("wdsadw");
                 rod.GetComponent<Animator>().SetBool("rod_throw", false);
-
-                uiText.text = "GEIIII ICE";
             }
 
-            if (fishing == true && time < cooldown)
+            if (fishing && time < cooldown)
             {
-                
                 fishing_length--;
             }
             Debug.Log("fishing_length " + fishing_length);
             if (fishing_length <= 0)
             {
+                uiText.text = "Натисни SPACE";
+
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && fishing)
                 {
-                    uiText.text = "Press SPACE";
-
                     rod.GetComponent<Animator>().SetBool("rod_pull", true);
-                    
+                    rod.GetComponent<Animator>().SetBool("rod_throw", false);
+
                     randomValue = Random.Range(40f, 150f);
                     randomFish = Random.Range(0, fishes.Length);
 
@@ -110,6 +110,8 @@ public class TriggerHandler : MonoBehaviour
                     fishing_length = randomValue;
                     
                     Debug.Log("fishing_length " + fishing_length);
+
+                    uiText.text = "";
                 }
             }
 
@@ -127,7 +129,7 @@ public class TriggerHandler : MonoBehaviour
             if (fishing == false)
             {
                 RodBack.Play();
-                rod.GetComponent<Animator>().SetBool("rod_pull", false);
+                //rod.GetComponent<Animator>().SetBool("rod_pull", false);
                 time = cooldown + 1;
             }
 
