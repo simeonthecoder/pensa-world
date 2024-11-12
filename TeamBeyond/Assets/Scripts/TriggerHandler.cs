@@ -5,6 +5,13 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class TriggerHandler : MonoBehaviour
 {
+    public GameObject toThrowFrom; // The object you want to position another object under
+    public GameObject baitball;  // The object you want to position under 'targetObject'
+    public float distanceBelow = 1.0f; // The distance below the target object
+    public float throwForce = 0f;
+
+
+    public GameObject obj2;
     public GameObject playerCamera;
     public GameObject rod;
     public GameObject targetPosition;
@@ -19,7 +26,7 @@ public class TriggerHandler : MonoBehaviour
     public AudioSource RodCast;
     public AudioSource[] Splashes;
 
-
+    
     private int randomSplash;
     private float time = 0f;
     private float randomValue = 0f;
@@ -28,14 +35,39 @@ public class TriggerHandler : MonoBehaviour
     private float fishing_length;
     private string[] fishes = { "fort (uncommon)", "fort1 (common)", "fort2 (rare)", "fort3 (mythic)", "fort4 (legendary)" };
     
+    private int[] fishesCatchPulls = {6,14,20,30,31 };
+    private int catchesPull = 0;
     private bool hit_play = false;
 
+    private LineRenderer lineRenderer;
     public void Start()
     {
         Debug.Log(uiText);
-
-        fishing_length = Random.Range(40f, 200f);
+        lineRenderer = GetComponent<LineRenderer>();
+        fishing_length = Random.Range(110f, 300f);
         rod.SetActive(false);
+    }
+
+
+    public void FishingRodThrow()
+    {
+
+        baitball.transform.position = toThrowFrom.transform.position;
+        // Ensure the baitBall has a Rigidbody component
+        Rigidbody rb = baitball.GetComponent<Rigidbody>();
+
+
+        FreeCamera freeCam = playerCamera.GetComponent<FreeCamera>();
+
+        Vector3 cameraForward = freeCam.transform.forward;
+        cameraForward.y = 0; // Optional: Ignore vertical direction if you want a flat throw
+
+
+        // Normalize the direction to avoid scaling issues
+        Vector3 throwDirection = cameraForward.normalized;
+
+        // Apply a velocity to the baitBall in the direction of the specified camera
+        rb.linearVelocity = throwDirection * throwForce;
     }
 
     public void Update()
@@ -44,13 +76,22 @@ public class TriggerHandler : MonoBehaviour
 
         if (!inside && !active) return;
 
+
         if (Input.GetKeyDown("e"))
         {
-            active = true;
+            if (active)
+            {
+                active = false;
+            }
+            else
+            {
+                active = true;
+            }
+            
             FreeCamera freeCam = playerCamera.GetComponent<FreeCamera>();
 
             freeCam.Toggle();
-            freeCam.movementDisabled = true;
+            freeCam.movementDisabled = false;
 
             freeCam.TeleportPlayer(new Vector3(-10, 0, -10));
             freeCam.transform.position = targetPosition.transform.position;
@@ -69,11 +110,24 @@ public class TriggerHandler : MonoBehaviour
 
         if (active)
         {
-            if (Input.GetMouseButtonDown(0) && time > cooldown)
+            rod.SetActive(true);
+            lineRenderer.SetPosition(0, baitball.transform.position); // Position of obj1
+            lineRenderer.SetPosition(1, obj2.transform.position); // Position of obj2
+
+
+            if (Input.GetMouseButton(0) && time > cooldown)
             {
+                uiText.text = "Force " + ++throwForce;
+
+                
+
+            }else if ((!Input.GetMouseButton(0)) && throwForce > 6f && time > cooldown)
+            {
+                FishingRodThrow();
                 Debug.Log("hvurlqi se ot mosta");
                 hit_play = false;
                 RodCast.Play();
+
                 rod.GetComponent<Animator>().SetBool("rod_throw", true);
                 rod.GetComponent<Animator>().SetBool("rod_pull", false);
 
@@ -86,6 +140,8 @@ public class TriggerHandler : MonoBehaviour
                 fishing = true;
                 Debug.Log("wdsadw");
                 rod.GetComponent<Animator>().SetBool("rod_throw", false);
+                rod.GetComponent<Animator>().SetBool("rod_inWater", true);
+
             }
 
             if (fishing && time < cooldown)
@@ -95,47 +151,77 @@ public class TriggerHandler : MonoBehaviour
             Debug.Log("fishing_length " + fishing_length);
             if (fishing_length <= 0)
             {
-                uiText.text = "Натисни SPACE";
-
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) && fishing)
+                
+                randomFish = Random.Range(0, fishes.Length);
+                if (Input.GetKeyDown(KeyCode.Space) && fishing && catchesPull != fishesCatchPulls[randomFish])
                 {
-                    rod.GetComponent<Animator>().SetBool("rod_pull", true);
-                    rod.GetComponent<Animator>().SetBool("rod_throw", false);
 
-                    randomValue = Random.Range(40f, 150f);
+                    catchesPull++;
+                    uiText.text = "pulls " + catchesPull;
+
+                    rod.GetComponent<Animator>().SetBool("rod_inWater", false);
+                    rod.GetComponent<Animator>().SetBool("rod_pull", true);
+                    
+
+                }
+
+                if (catchesPull == fishesCatchPulls[randomFish])
+                {
+                    rod.GetComponent<Animator>().SetBool("rod_inWater", false);
+                    rod.GetComponent<Animator>().SetBool("rod_pull", true);
+
+                    uiText.text = "Done!!";
+
                     randomFish = Random.Range(0, fishes.Length);
 
                     Debug.Log(fishes[randomFish]);
                     fishing = false;
-                    fishing_length = randomValue;
-                    
+                    fishing_length = Random.Range(110f, 300f);
+
                     Debug.Log("fishing_length " + fishing_length);
 
                     uiText.text = "";
                 }
+
             }
 
-            if (fishing_length < -1 && hit_play == false)
+            if (fishing_length < -1)
             {
-                this.randomSplash = Random.Range(0, Splashes.Length);
-         
-                Splashes[randomSplash].Play();
+                
+                
+                if (!Splashes[randomSplash].isPlaying)
+                {
+                    this.randomSplash = Random.Range(0, Splashes.Length);
+                    Splashes[randomSplash].Play();
+                }
                 
                 
                 
-                hit_play = true;
+                
+                
             }
 
             if (fishing == false)
             {
+                throwForce = 0f;
+                catchesPull = 0;
+                baitball.transform.position = obj2.transform.position;
                 RodBack.Play();
-                //rod.GetComponent<Animator>().SetBool("rod_pull", false);
+                rod.GetComponent<Animator>().SetBool("rod_pull", true);
                 time = cooldown + 1;
             }
 
         }
+        else
+        {
+            rod.SetActive(false);
+            
+            
+        }
 
     }
+
+
 
     public void OnTriggerEnter(Collider collision)
     {
