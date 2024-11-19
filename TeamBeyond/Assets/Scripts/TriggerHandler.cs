@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using static System.Net.Mime.MediaTypeNames;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class TriggerHandler : MonoBehaviour
 {
@@ -34,17 +35,21 @@ public class TriggerHandler : MonoBehaviour
 
     private float fishing_length;
     private string[] fishes = { "fort (uncommon)", "fort1 (common)", "fort2 (rare)", "fort3 (mythic)", "fort4 (legendary)" };
-    
-    private int[] fishesCatchPulls = {6,14,20,30,31 };
+    public GameObject fish;
+    private bool canThrow = true;
+    private bool inWater = false;
+
+    private int[] fishesCatchPulls = {13,22,30,31 };
     private int catchesPull = 0;
     private bool hit_play = false;
+    public Vector3 rotationSpeed = new Vector3(0, 30, 0); // Speed of rotation (degrees per second)
 
     private LineRenderer lineRenderer;
     public void Start()
     {
         Debug.Log(uiText);
         lineRenderer = GetComponent<LineRenderer>();
-        fishing_length = Random.Range(110f, 300f);
+        fishing_length = Random.Range(4010f, 8000f);
         rod.SetActive(false);
     }
 
@@ -67,7 +72,7 @@ public class TriggerHandler : MonoBehaviour
         Vector3 throwDirection = cameraForward.normalized;
 
         // Apply a velocity to the baitBall in the direction of the specified camera
-        rb.linearVelocity = throwDirection * throwForce;
+        rb.linearVelocity = throwDirection * (throwForce / 8);
     }
 
     public void Update()
@@ -118,20 +123,23 @@ public class TriggerHandler : MonoBehaviour
             if (Input.GetMouseButton(0) && time > cooldown)
             {
                 uiText.text = "Force " + ++throwForce;
+                canThrow = true;
 
-                
 
-            }else if ((!Input.GetMouseButton(0)) && throwForce > 6f && time > cooldown)
+            }
+            else if ((!Input.GetMouseButton(0))&& canThrow == true && time > cooldown)
             {
                 FishingRodThrow();
                 Debug.Log("hvurlqi se ot mosta");
                 hit_play = false;
                 RodCast.Play();
-
+                canThrow = false;
                 rod.GetComponent<Animator>().SetBool("rod_throw", true);
                 rod.GetComponent<Animator>().SetBool("rod_pull", false);
-
+                inWater = true;
                 time = 0f;
+                randomFish = Random.Range(0, fishes.Length);
+                
             }
 
             if (time > cooldown)
@@ -144,15 +152,12 @@ public class TriggerHandler : MonoBehaviour
 
             }
 
-            if (fishing && time < cooldown)
-            {
-                fishing_length--;
-            }
+           
             Debug.Log("fishing_length " + fishing_length);
             if (fishing_length <= 0)
             {
                 
-                randomFish = Random.Range(0, fishes.Length);
+                
                 if (Input.GetKeyDown(KeyCode.Space) && fishing && catchesPull != fishesCatchPulls[randomFish])
                 {
 
@@ -169,16 +174,35 @@ public class TriggerHandler : MonoBehaviour
                 {
                     rod.GetComponent<Animator>().SetBool("rod_inWater", false);
                     rod.GetComponent<Animator>().SetBool("rod_pull", true);
-
+                    inWater = false;
                     uiText.text = "Done!!";
 
                     randomFish = Random.Range(0, fishes.Length);
-
+                    
                     Debug.Log(fishes[randomFish]);
                     fishing = false;
-                    fishing_length = Random.Range(110f, 300f);
+                    fishing_length = Random.Range(4010f, 8000f);
 
                     Debug.Log("fishing_length " + fishing_length);
+
+                    FreeCamera freeCam = playerCamera.GetComponent<FreeCamera>();
+                    // Calculate the target position
+                    Vector3 forward = freeCam.transform.forward;
+                    Vector3 right = freeCam.transform.right;
+                    Vector3 up = freeCam.transform.up;
+
+                    // Position slightly in front of the camera
+                    Vector3 targetPosition = freeCam.transform.position +
+                                             forward * 2f +
+                                             up * -0.5f +
+                                             right * 0f;
+                    
+                    transform.Rotate(rotationSpeed* Time.deltaTime);
+                    // Set object's position
+                    fish.transform.position = targetPosition;
+
+                    
+
 
                     uiText.text = "";
                 }
@@ -201,8 +225,16 @@ public class TriggerHandler : MonoBehaviour
                 
             }
 
+            if (fishing == true && inWater == true)
+            {
+                fishing_length--;
+            }
+
             if (fishing == false)
             {
+                Vector3 targetPosition = transform.position + Vector3.down * Mathf.Abs(-30f);
+                fish.transform.position = targetPosition;
+                inWater = false;
                 throwForce = 0f;
                 catchesPull = 0;
                 baitball.transform.position = obj2.transform.position;
