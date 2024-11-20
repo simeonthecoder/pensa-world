@@ -39,7 +39,7 @@ public class TriggerHandler : MonoBehaviour
     private bool canThrow = true;
     private bool inWater = false;
 
-    private int[] fishesCatchPulls = {13,22,30,31 };
+    private int[] fishesCatchPulls = {8,13,22,30,31 };
     private int catchesPull = 0;
     private bool hit_play = false;
     public Vector3 rotationSpeed = new Vector3(0, 30, 0); // Speed of rotation (degrees per second)
@@ -49,7 +49,7 @@ public class TriggerHandler : MonoBehaviour
     {
         Debug.Log(uiText);
         lineRenderer = GetComponent<LineRenderer>();
-        fishing_length = Random.Range(4010f, 8000f);
+        fishing_length = Random.Range(1010f, 4000f);
         rod.SetActive(false);
     }
 
@@ -72,7 +72,7 @@ public class TriggerHandler : MonoBehaviour
         Vector3 throwDirection = cameraForward.normalized;
 
         // Apply a velocity to the baitBall in the direction of the specified camera
-        rb.linearVelocity = throwDirection * (throwForce / 8);
+        rb.linearVelocity = throwDirection * (throwForce);
     }
 
     public void Update()
@@ -122,7 +122,8 @@ public class TriggerHandler : MonoBehaviour
 
             if (Input.GetMouseButton(0) && time > cooldown)
             {
-                uiText.text = "Force " + ++throwForce;
+                throwForce += 1.6f * Time.deltaTime;
+                uiText.text = "Force " + throwForce;
                 canThrow = true;
 
 
@@ -227,7 +228,7 @@ public class TriggerHandler : MonoBehaviour
 
             if (fishing == true && inWater == true)
             {
-                fishing_length--;
+                fishing_length-=Time.deltaTime*60;
             }
 
             if (fishing == false)
