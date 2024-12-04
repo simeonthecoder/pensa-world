@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CUTSCENE.unity
     guid: 39b700dc80605de498825692fdef40f1
   - enabled: 1
-    path: Assets/Scenes/CUTSCENE 2.unity
+    path: Assets/Scenes/Remake_C2.unity
     guid: bf41dc9970b9eb14d85e2220ecde2b65
   - enabled: 1
     path: Assets/Scenes/OUTSIDE_CASTLE.unity
