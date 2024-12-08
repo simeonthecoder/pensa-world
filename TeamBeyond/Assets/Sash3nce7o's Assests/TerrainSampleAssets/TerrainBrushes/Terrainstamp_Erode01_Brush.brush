@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 12146, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Terrainstamp_Erode01_Brush
   m_EditorClassIdentifier: 
-  m_Mask: {fileID: 2800000, guid: 228af47692a8c7c49b93049646ac6c46, type: 3}
+  m_Mask: {fileID: 2800000, guid: f46c0240fe5293348b4632b50f87526d, type: 3}
   m_Falloff:
     serializedVersion: 2
     m_Curve:
