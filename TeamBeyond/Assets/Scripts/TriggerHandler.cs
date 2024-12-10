@@ -11,6 +11,7 @@ public class TriggerHandler : MonoBehaviour
     public float distanceBelow = 1.0f; // The distance below the target object
     public float throwForce = 0f;
 
+    public GameObject displayPoint;
 
     public GameObject obj2;
     public GameObject playerCamera;
@@ -34,12 +35,13 @@ public class TriggerHandler : MonoBehaviour
     private int randomFish = 0;
 
     private float fishing_length;
-    private string[] fishes = { "fort (uncommon)", "fort1 (common)", "fort2 (rare)", "fort3 (mythic)", "fort4 (legendary)" };
+    public string[] fishes = { "fish (uncommon)", "fish1 (common)", "fish2 (rare)", "fish3 (mythic)", "fish4 (legendary)" };
+    public GameObject[] fishObjs;
     public GameObject fish;
-    private bool canThrow = true;
+    private bool canThrow = false;
     private bool inWater = false;
 
-    private int[] fishesCatchPulls = {8,13,22,30,31 };
+    private int[] fishesCatchPulls = {8,13,19,25,31 };
     private int catchesPull = 0;
     private bool hit_play = false;
     public Vector3 rotationSpeed = new Vector3(0, 30, 0); // Speed of rotation (degrees per second)
@@ -125,7 +127,7 @@ public class TriggerHandler : MonoBehaviour
             lineRenderer.SetPosition(1, obj2.transform.position); // Position of obj2
 
 
-            if (Input.GetMouseButton(0) && time > cooldown)
+            if (Input.GetMouseButton(0) && time > cooldown && fishing == true)
             {
                 throwForce += 1.6f * Time.deltaTime;
                 uiText.text = "Force " + throwForce;
@@ -135,6 +137,13 @@ public class TriggerHandler : MonoBehaviour
             }
             else if ((!Input.GetMouseButton(0))&& canThrow == true && time > cooldown)
             {
+
+                fish.transform.position = new Vector3(
+                    fish.transform.position.x,               // Keep current X position
+                    displayPoint.transform.position.y - 140,       // Match Y position to displayPoint
+                    fish.transform.position.z                // Keep current Z position
+                );
+
                 FishingRodThrow();
                 Debug.Log("hvurlqi se ot mosta");
                 hit_play = false;
@@ -145,7 +154,7 @@ public class TriggerHandler : MonoBehaviour
                 inWater = true;
                 time = 0f;
                 randomFish = Random.Range(0, fishes.Length);
-                
+
             }
 
             if (time > cooldown)
@@ -191,7 +200,7 @@ public class TriggerHandler : MonoBehaviour
 
 
                 }
-                
+
 
                 if (catchesPull == fishesCatchPulls[randomFish])
                 {
@@ -202,8 +211,15 @@ public class TriggerHandler : MonoBehaviour
                     inWater = false;
                     uiText.text = "Done!!";
 
+
+
+                    fish = fishObjs[randomFish];
+
+
+
+
                     randomFish = Random.Range(0, fishes.Length);
-                    
+
                     Debug.Log(fishes[randomFish]);
                     fishing = false;
                     fishing_length = Random.Range(4010f, 8000f);
@@ -221,16 +237,33 @@ public class TriggerHandler : MonoBehaviour
                                              forward * 2f +
                                              up * -0.5f +
                                              right * 0f;
-                    
-                    transform.Rotate(rotationSpeed* Time.deltaTime);
+
+                    transform.Rotate(rotationSpeed * Time.deltaTime);
                     // Set object's position
                     fish.transform.position = targetPosition;
 
-                    
 
+                    fish.transform.position = displayPoint.transform.position;
 
-                    uiText.text = "";
+                    uiText.text = fishes[randomFish];
+                    while (!Input.anyKeyDown)
+                    {
+                        Debug.Log("pokaza se");
+                        
+
+                    }
+
                 }
+                else
+                {
+                    fish.transform.position = new Vector3(
+                        fish.transform.position.x,               // Keep current X position
+                        displayPoint.transform.position.y - 140,       // Match Y position to displayPoint
+                        fish.transform.position.z                // Keep current Z position
+                    );
+
+                }
+
 
             }
 
@@ -279,7 +312,7 @@ public class TriggerHandler : MonoBehaviour
             if (fishing == false)
             {
                 Vector3 targetPosition = transform.position + Vector3.down * Mathf.Abs(-30f);
-                fish.transform.position = targetPosition;
+
                 inWater = false;
                 throwForce = 0f;
                 catchesPull = 0;
