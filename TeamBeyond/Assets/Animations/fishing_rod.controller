@@ -11,6 +11,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: rod_inWater
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_throw
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_pull
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1799910297996233964}
   m_Solo: 0
@@ -157,6 +163,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: rod_pull
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_inWater
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_throw
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4037166961120827074}
   m_Solo: 0
@@ -240,6 +252,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: rod_throw
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_pull
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_inWater
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2375379777704499942}
   m_Solo: 0
@@ -264,6 +282,12 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: rod_pull
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_inWater
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: rod_throw
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1969116078372680456}
