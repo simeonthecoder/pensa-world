@@ -20,6 +20,7 @@ public class TriggerHandler : MonoBehaviour
     private bool inside = false;
     private bool active = false;
     public TMP_Text uiText;
+    public TMP_Text uiTextLeftMiddle;
     public float cooldown;
     public bool fishing = false;
 
@@ -36,6 +37,9 @@ public class TriggerHandler : MonoBehaviour
 
     private float fishing_length;
     public string[] fishes = { "fish (uncommon)", "fish1 (common)", "fish2 (rare)", "fish3 (mythic)", "fish4 (legendary)" };
+    public string[] rodTypes = { "default", "normal", "super" };
+    public string rodType = "default";
+    public double[] rodDurability = { 100, 150, 250 };
     public GameObject[] fishObjs;
     public GameObject fish;
     private bool canThrow = true;
@@ -125,6 +129,7 @@ public class TriggerHandler : MonoBehaviour
         if (active)
         {
             rod.SetActive(true);
+            uiTextLeftMiddle.text = "Durability " + rodDurability[0];
             lineRenderer.SetPosition(0, baitball.transform.position); // Position of obj1
             lineRenderer.SetPosition(1, obj2.transform.position); // Position of obj2
 
@@ -189,6 +194,11 @@ public class TriggerHandler : MonoBehaviour
                 {
 
                     catchesPull++;
+                    if (rodType == rodTypes[0])
+                    {
+                        rodDurability[0] -= 0.5;
+                        Debug.Log("Durability: " + rodDurability[0]);
+                    }
                     uiText.text = "pulls " + catchesPull;
 
                     rod.GetComponent<Animator>().SetBool("rod_throw", false);
