@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static System.Net.Mime.MediaTypeNames;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class TriggerHandler : MonoBehaviour
 {
