@@ -5,35 +5,35 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/CUTSCENE_1.unity
-    guid: 8151a66512923444fb2cb6a9ffc5ebfe
-  - enabled: 0
-    path: Assets/Scenes/CUTSCENE.unity
-    guid: 39b700dc80605de498825692fdef40f1
   - enabled: 1
-    path: Assets/Scenes/C_Remake_1.unity
+    path: Assets/Scenes/Tutorial_Forest.unity
     guid: acbb8ad5d3d191f44a76ffcdae849c51
   - enabled: 1
-    path: Assets/Scenes/CUTSCENE 2.unity
+    path: Assets/Scenes/East_Town.unity
+    guid: 39b700dc80605de498825692fdef40f1
+  - enabled: 1
+    path: Assets/Scenes/Fishing_Village.unity
     guid: bf41dc9970b9eb14d85e2220ecde2b65
-  - enabled: 0
-    path: Assets/Scenes/OUTSIDE_CASTLE.unity
+  - enabled: 1
+    path: Assets/Scenes/West_Town.unity
     guid: 4b7ef0a58e68b984bb7584492f90e086
-  - enabled: 0
-    path: Assets/Scenes/FOREST.unity
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
     guid: e7edc0b5a940c384e90257327b19844d
-  - enabled: 0
-    path: Assets/Scenes/WITHIN_CASTLE.unity
-    guid: 7f0b58ad87ef36349968b6e4920ddb7b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PUB.unity
     guid: 307f6524f3e682744bd23adbd6bfd814
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PensaClubWebsite.unity
     guid: 5068539fb8f3a1c49975cf1d8d95d526
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CUTSCENE_DOORS_SHOWCASE.unity
     guid: 3c641e2685d1b3c479bc648f7e4ad03f
+  - enabled: 0
+    path: Assets/Scenes/OLD_Tutorial.unity
+    guid: 8151a66512923444fb2cb6a9ffc5ebfe
+  - enabled: 0
+    path: Assets/Scenes/OLD_West_Town.unity
+    guid: 7f0b58ad87ef36349968b6e4920ddb7b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
